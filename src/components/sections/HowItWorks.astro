@@ -1,0 +1,150 @@
+---
+const steps = [
+  {
+    number: '01',
+    title: 'Drone Flight & Capture',
+    subtitle: 'Aerial thermographic inspection',
+    description: 'A drone equipped with a high-resolution thermographic camera and RGB sensor flies autonomously across the entire solar farm, capturing thermal images with millimeter precision and GPS georeferencing.',
+    details: [
+      'FLIR 640×512px thermal camera',
+      'Fully autonomous planned mission',
+      'Up to 200ha coverage per flight day',
+      'RTK GPS-georeferenced imagery',
+    ],
+    color: '#8CBDB9',
+    bgColor: 'rgba(140,189,185,0.08)',
+    icon: 'drone',
+  },
+  {
+    number: '02',
+    title: 'AI Processing',
+    subtitle: 'Automated cloud-based analysis',
+    description: 'Images are processed in our cloud using AI models specifically trained to detect photovoltaic anomalies: hotspots, active bypass diodes, soiled modules, and shading patterns.',
+    details: [
+      'Photogrammetry & thermal orthomosaic',
+      'AI detection with >99% accuracy',
+      'Anomaly classification by severity',
+      'Correlation with SCADA production data',
+    ],
+    color: '#E09E50',
+    bgColor: 'rgba(224,158,80,0.08)',
+    icon: 'ai',
+  },
+  {
+    number: '03',
+    title: 'Anomaly Report',
+    subtitle: 'Actionable insights in < 1 hour',
+    description: 'Receive a complete professional report with a farm heat map, a prioritized anomaly list with GPS coordinates, estimated production loss, and a recommended maintenance plan.',
+    details: [
+      'Executive PDF + technical CSV data',
+      'Interactive anomaly map',
+      'Estimated ROI per repair',
+      'Direct CMMS integration',
+    ],
+    color: '#2D3E4E',
+    bgColor: 'rgba(45,62,78,0.05)',
+    icon: 'report',
+  },
+];
+---
+
+<section id="how-it-works" class="py-24 lg:py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center max-w-3xl mx-auto mb-16 lg:mb-24">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-body font-semibold tracking-wide uppercase mb-4 border" style="background: rgba(224,158,80,0.08); color: #2D3E4E; border-color: rgba(224,158,80,0.2);">
+        Process
+      </div>
+      <h2 class="font-heading font-bold text-slate text-4xl lg:text-5xl leading-tight mb-5">
+        From inspection to insight<br/>
+        <span style="color: #E09E50;">in 3 simple steps</span>
+      </h2>
+      <p class="font-body text-slate/60 text-lg leading-relaxed">
+        A fully automated process that turns thermal imagery into intelligent maintenance decisions.
+      </p>
+    </div>
+
+    <div class="relative">
+
+      <!-- Desktop progress line -->
+      <div class="hidden lg:block absolute top-24 left-[16.5%] right-[16.5%] h-0.5 z-0" style="background: linear-gradient(90deg, #8CBDB9 0%, #E09E50 50%, #2D3E4E 100%); opacity: 0.3;"></div>
+
+      <div class="grid lg:grid-cols-3 gap-8 lg:gap-6 relative z-10">
+        {steps.map((step, i) => (
+          <div class="flex flex-col">
+
+            <div class="flex lg:justify-center mb-8">
+              <div class="relative">
+                <div class="w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg" style={`background: ${step.color};`}>
+                  {step.icon === 'drone' && (
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8">
+                      <path d="M12 12a3 3 0 100-6 3 3 0 000 6z" fill="white" fill-opacity="0.3"/>
+                      <path d="M3 3l4 4M21 3l-4 4M3 21l4-4M21 21l-4-4" stroke-linecap="round"/>
+                    </svg>
+                  )}
+                  {step.icon === 'ai' && (
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8">
+                      <path d="M12 2a2 2 0 012 2v2a2 2 0 01-4 0V4a2 2 0 012-2z" fill="white" fill-opacity="0.3"/>
+                      <path d="M12 18a2 2 0 012 2v1a2 2 0 01-4 0v-1a2 2 0 012-2z" fill="white" fill-opacity="0.3"/>
+                      <path d="M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke-linecap="round"/>
+                      <circle cx="12" cy="12" r="3" fill="white" fill-opacity="0.5"/>
+                    </svg>
+                  )}
+                  {step.icon === 'report' && (
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8">
+                      <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" fill="white" fill-opacity="0.2" stroke-linejoin="round"/>
+                      <polyline points="14 2 14 8 20 8"/>
+                      <line x1="16" y1="13" x2="8" y2="13"/>
+                      <line x1="16" y1="17" x2="8" y2="17"/>
+                      <line x1="10" y1="9" x2="8" y2="9"/>
+                    </svg>
+                  )}
+                </div>
+                <div class="absolute -top-2 -right-2 w-7 h-7 rounded-lg bg-white shadow-md flex items-center justify-center border-2" style={`border-color: ${step.color};`}>
+                  <span class="font-heading font-bold text-xs" style={`color: ${step.color};`}>{i + 1}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex-1 rounded-2xl p-6 border hover:shadow-lg transition-all duration-300" style={`background: ${step.bgColor}; border-color: ${step.color}30;`}>
+              <div class="mb-4">
+                <p class="font-body text-xs font-semibold uppercase tracking-wider mb-1" style={`color: ${step.color};`}>{step.subtitle}</p>
+                <h3 class="font-heading font-bold text-slate text-xl leading-snug">{step.title}</h3>
+              </div>
+              <p class="font-body text-slate/60 text-sm leading-relaxed mb-5">{step.description}</p>
+              <ul class="space-y-2">
+                {step.details.map(d => (
+                  <li class="flex items-start gap-2.5">
+                    <div class="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={`background: ${step.color}25; border: 1px solid ${step.color}40;`}>
+                      <svg width="8" height="8" viewBox="0 0 24 24" fill="none">
+                        <path d="M5 13l4 4L19 7" stroke={step.color} stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </div>
+                    <span class="font-body text-sm text-slate/70">{d}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Bottom timeline callout -->
+    <div class="mt-16 p-6 lg:p-8 rounded-2xl border flex flex-col sm:flex-row items-start sm:items-center gap-6" style="background: rgba(45,62,78,0.03); border-color: rgba(45,62,78,0.1);">
+      <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background: #2D3E4E;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="flex-1">
+        <h4 class="font-heading font-bold text-slate text-lg mb-1">From request to report: under 48 hours</h4>
+        <p class="font-body text-slate/60 text-sm">From first contact to a complete report with every anomaly identified and an action plan in your hands.</p>
+      </div>
+      <a href="#contact" class="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-solar text-white font-body font-semibold text-sm rounded-xl hover:bg-solar/90 transition-all shadow-sm hover:shadow-md active:scale-95 whitespace-nowrap">
+        Start an inspection
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
