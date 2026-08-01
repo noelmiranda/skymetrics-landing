@@ -1,13 +1,13 @@
 ---
 const features = [
   {
-    icon: 'hotspot',
-    tag: 'Auto Detection',
-    title: 'AI-Powered Hotspot Identification',
-    description: 'Computer vision algorithms automatically detect cells with abnormal temperature, active bypass diodes, and partial shading — no human review required.',
+    icon: 'ai',
+    tag: 'Claude Vision AI',
+    title: 'Automated Fault Detection',
+    description: 'Every thermal image is analyzed by Claude Vision (Anthropic). The model classifies four fault types — broken diodes, dead cells, dirt, and disconnections — with severity levels from low to critical. No manual review needed.',
     stats: [
-      { value: '99.4%', label: 'Detection accuracy' },
-      { value: '<2s', label: 'Per panel' },
+      { value: '4', label: 'Fault types' },
+      { value: '3', label: 'Severity levels' },
     ],
     accent: '#E09E50',
     bg: 'rgba(224,158,80,0.06)',
@@ -15,12 +15,12 @@ const features = [
   },
   {
     icon: 'map',
-    tag: 'Thermal Orthomosaic',
-    title: 'Georeferenced Thermal Map',
-    description: 'We generate high-resolution orthomosaics in real time combining RGB and infrared imagery. Every hotspot is georeferenced with exact GPS coordinates.',
+    tag: 'PostGIS + Leaflet',
+    title: 'GPS-Georeferenced Anomaly Map',
+    description: 'Each detected fault is persisted with exact GPS coordinates in a PostGIS-enabled PostgreSQL database. The interactive Leaflet.js map lets field technicians locate any anomaly instantly using bounding-box spatial queries.',
     stats: [
-      { value: '5cm/px', label: 'GSD resolution' },
-      { value: 'GPS', label: 'Exact coordinates' },
+      { value: 'WGS-84', label: 'Coordinate system' },
+      { value: 'GiST', label: 'Spatial index' },
     ],
     accent: '#8CBDB9',
     bg: 'rgba(140,189,185,0.06)',
@@ -28,25 +28,25 @@ const features = [
   },
   {
     icon: 'report',
-    tag: 'Smart Reports',
-    title: 'AI-Generated PDF Reports',
-    description: 'Every inspection automatically produces a professional report with anomaly classification, estimated production impact, and prioritized maintenance recommendations.',
+    tag: 'PDF Reports',
+    title: 'Instant Inspection Reports',
+    description: 'Every completed inspection generates a downloadable PDF report via PDFKit — anomaly summary, panel-level detail, temperature deltas, severity classifications, and GPS coordinates for every fault found.',
     stats: [
-      { value: '< 1h', label: 'Report delivery' },
-      { value: 'PDF/CSV', label: 'Export formats' },
+      { value: 'PDF', label: 'Instant download' },
+      { value: 'ΔT 15°C', label: 'Critical threshold' },
     ],
     accent: '#2D3E4E',
     bg: 'rgba(45,62,78,0.04)',
     border: 'rgba(45,62,78,0.1)',
   },
   {
-    icon: 'drone',
-    tag: 'Autonomous Flight',
-    title: 'Intelligent Flight Planning',
-    description: 'Plan complete inspection missions autonomously. The system optimizes flight paths for full farm coverage in the shortest time possible.',
+    icon: 'batch',
+    tag: 'Batch Upload',
+    title: 'Upload 100 Images or a ZIP',
+    description: 'Drone operators upload up to 100 thermal images at once — or drop a single ZIP from their FLIR software. Files go directly to Google Cloud Storage via signed URLs. One failed image never aborts the rest of the batch.',
     stats: [
-      { value: '200ha', label: 'Per flight day' },
-      { value: '100%', label: 'Coverage' },
+      { value: '100', label: 'Images per batch' },
+      { value: 'ZIP', label: 'Archive support' },
     ],
     accent: '#8CBDB9',
     bg: 'rgba(140,189,185,0.06)',
@@ -55,24 +55,24 @@ const features = [
   {
     icon: 'alert',
     tag: 'Real-Time Alerts',
-    title: 'Continuous Monitoring & Alerts',
-    description: 'Automatic email and SMS alerts when critical anomalies are detected. Real-time dashboard with historical metric trends per string and inverter.',
+    title: 'Critical Fault Notifications',
+    description: 'When an anomaly is classified as critical or exceeds the 15°C temperature delta threshold (industry standard for crystalline silicon PV), the alert system fires immediately — console log plus webhook POST to any configured endpoint.',
     stats: [
-      { value: '24/7', label: 'Active monitoring' },
-      { value: '< 5min', label: 'Alert latency' },
+      { value: 'Webhook', label: 'Alert delivery' },
+      { value: 'Instant', label: 'On detection' },
     ],
     accent: '#E09E50',
     bg: 'rgba(224,158,80,0.06)',
     border: 'rgba(224,158,80,0.15)',
   },
   {
-    icon: 'integrate',
-    tag: 'SCADA Integration',
-    title: 'Connect to Your SCADA/EMS',
-    description: 'Integrate SkyMetrics with your existing plant management systems via REST API or webhooks. Compatible with leading solar SCADA and monitoring platforms.',
+    icon: 'api',
+    tag: 'REST API',
+    title: 'Fully Documented API',
+    description: 'Complete REST API with OpenAPI 3.0.3 documentation (Swagger UI at /docs). Integrate SkyMetrics into your existing SCADA, CMMS, or monitoring platform. Async batch analysis returns 202 Accepted immediately.',
     stats: [
-      { value: 'REST', label: 'Documented API' },
-      { value: '50+', label: 'Integrations' },
+      { value: 'OpenAPI', label: '3.0.3 spec' },
+      { value: '202', label: 'Async response' },
     ],
     accent: '#2D3E4E',
     bg: 'rgba(45,62,78,0.04)',
@@ -86,14 +86,14 @@ const features = [
 
     <div class="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
       <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-body font-semibold tracking-wide uppercase mb-4 border" style="background: rgba(140,189,185,0.1); color: #2D3E4E; border-color: rgba(140,189,185,0.3);">
-        Features
+        Platform Features
       </div>
       <h2 class="font-heading font-bold text-slate text-4xl lg:text-5xl leading-tight mb-5">
-        Everything you need to<br/>
-        <span style="color: #8CBDB9;">maximize solar output</span>
+        Everything built.<br/>
+        <span style="color: #8CBDB9;">Everything working.</span>
       </h2>
       <p class="font-body text-slate/60 text-lg leading-relaxed">
-        An all-in-one platform combining professional drones, high-precision thermographic sensors, and artificial intelligence to transform solar asset management.
+        SkyMetrics Core is a production-ready B2B platform — 423 automated tests, 0 TypeScript errors — combining Claude Vision AI, PostGIS geospatial indexing, and Google Cloud infrastructure.
       </p>
     </div>
 
@@ -102,10 +102,12 @@ const features = [
         <div class="group bg-white rounded-2xl p-6 border hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col gap-5" style={`border-color: ${f.border}; background-color: ${f.bg};`}>
 
           <div class="flex items-start justify-between">
-            <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={`background: ${f.accent}; opacity: 0.9;`}>
-              {f.icon === 'hotspot' && (
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center shrink-0" style={`background: ${f.accent}; opacity: 0.9;`}>
+              {f.icon === 'ai' && (
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                  <circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke-linecap="round"/>
+                  <path d="M12 2a2 2 0 012 2v1a2 2 0 01-4 0V4a2 2 0 012-2z" fill="white" fill-opacity="0.3"/>
+                  <path d="M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke-linecap="round"/>
+                  <circle cx="12" cy="12" r="3" fill="white" fill-opacity="0.5"/>
                 </svg>
               )}
               {f.icon === 'map' && (
@@ -115,12 +117,12 @@ const features = [
               )}
               {f.icon === 'report' && (
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                  <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke-linejoin="round"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+                  <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke-linejoin="round"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
                 </svg>
               )}
-              {f.icon === 'drone' && (
+              {f.icon === 'batch' && (
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                  <path d="M12 12a3 3 0 100-6 3 3 0 000 6z"/><path d="M3 3l4 4M21 3l-4 4M3 21l4-4M21 21l-4-4" stroke-linecap="round"/><circle cx="12" cy="9" r="1" fill="white"/>
+                  <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
                 </svg>
               )}
               {f.icon === 'alert' && (
@@ -128,9 +130,9 @@ const features = [
                   <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0" stroke-linecap="round"/>
                 </svg>
               )}
-              {f.icon === 'integrate' && (
+              {f.icon === 'api' && (
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                  <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+                  <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
                 </svg>
               )}
             </div>
