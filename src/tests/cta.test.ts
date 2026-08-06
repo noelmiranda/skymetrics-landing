@@ -83,3 +83,78 @@ describe('CallToAction section', () => {
     expect(html).toContain('Ongoing follow-up');
   });
 });
+
+describe('CallToAction form validation structure', () => {
+  it('required fields have aria-required="true"', () => {
+    const root = parse(html);
+    expect(root.querySelector('#first-name')?.getAttribute('aria-required')).toBe('true');
+    expect(root.querySelector('#email')?.getAttribute('aria-required')).toBe('true');
+    expect(root.querySelector('#capacity')?.getAttribute('aria-required')).toBe('true');
+  });
+
+  it('optional fields do not have aria-required', () => {
+    const root = parse(html);
+    expect(root.querySelector('#company')?.getAttribute('aria-required')).toBeUndefined();
+    expect(root.querySelector('#message')?.getAttribute('aria-required')).toBeUndefined();
+  });
+
+  it('all fields start with aria-invalid="false"', () => {
+    const root = parse(html);
+    const ids = ['first-name', 'email', 'capacity', 'company', 'message'];
+    for (const id of ids) {
+      expect(root.querySelector(`#${id}`)?.getAttribute('aria-invalid'), `#${id} should start as valid`).toBe('false');
+    }
+  });
+
+  it('each field has aria-describedby pointing to its error element', () => {
+    const root = parse(html);
+    const pairs = [
+      ['first-name', 'error-name'],
+      ['email',      'error-email'],
+      ['capacity',   'error-capacity'],
+      ['company',    'error-company'],
+      ['message',    'error-message'],
+    ] as const;
+    for (const [inputId, errorId] of pairs) {
+      expect(root.querySelector(`#${inputId}`)?.getAttribute('aria-describedby'), `#${inputId} missing aria-describedby`).toBe(errorId);
+      expect(root.querySelector(`#${errorId}`), `#${errorId} element missing`).not.toBeNull();
+    }
+  });
+
+  it('all error elements are hidden initially', () => {
+    const root = parse(html);
+    const errorIds = ['error-name', 'error-email', 'error-capacity', 'error-company', 'error-message'];
+    for (const id of errorIds) {
+      const el = root.querySelector(`#${id}`);
+      expect(el?.getAttribute('class'), `#${id} should be hidden`).toContain('hidden');
+    }
+  });
+
+  it('error elements have role="alert"', () => {
+    const root = parse(html);
+    const errorIds = ['error-name', 'error-email', 'error-capacity', 'error-company', 'error-message'];
+    for (const id of errorIds) {
+      expect(root.querySelector(`#${id}`)?.getAttribute('role'), `#${id} missing role=alert`).toBe('alert');
+    }
+  });
+
+  it('required fields are visually marked with *', () => {
+    const root = parse(html);
+    const requiredLabels = [
+      root.querySelector('label[for="first-name"]'),
+      root.querySelector('label[for="email"]'),
+      root.querySelector('label[for="capacity"]'),
+    ];
+    for (const label of requiredLabels) {
+      expect(label?.text, 'required label should contain *').toContain('*');
+    }
+  });
+
+  it('optional fields are not marked with *', () => {
+    const root = parse(html);
+    const companyLabel = root.querySelector('label[for="company"]');
+    const messageLabel = root.querySelector('label[for="message"]');
+    expect(companyLabel?.text).not.toContain('*');
+    expect(messageLabel?.text).not.toContain('*');
+  });
+});

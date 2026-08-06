@@ -1,6 +1,15 @@
 ---
 const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY ?? '';
 ---
+
+<style>
+  input[aria-invalid="true"],
+  select[aria-invalid="true"],
+  textarea[aria-invalid="true"] {
+    border-color: #f87171;
+  }
+</style>
+
 <section id="contact" class="py-24 lg:py-32 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -48,7 +57,7 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY ?? '';
                 { icon: '🔄', title: 'Ongoing follow-up', desc: 'Periodic monitoring to verify anomaly fixes and prevent new faults from developing.' },
               ].map(item => (
                 <div class="flex items-start gap-4 p-4 rounded-xl border border-white/10" style="background: rgba(255,255,255,0.06);">
-                  <span class="text-2xl flex-shrink-0">{item.icon}</span>
+                  <span class="text-2xl shrink-0">{item.icon}</span>
                   <div>
                     <h4 class="font-heading font-semibold text-white text-sm mb-1">{item.title}</h4>
                     <p class="font-body text-white/50 text-xs leading-relaxed">{item.desc}</p>
@@ -89,34 +98,92 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY ?? '';
 
                 <div class="grid grid-cols-2 gap-3">
                   <div>
-                    <label class="font-body text-xs font-semibold text-slate/60 uppercase tracking-wide block mb-1.5" for="first-name">First name</label>
-                    <input id="first-name" name="name" type="text" placeholder="Your name" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate/15 font-body text-sm text-slate placeholder-slate/30 focus:outline-none focus:border-mint transition-all" />
+                    <label class="font-body text-xs font-semibold text-slate/60 uppercase tracking-wide block mb-1.5" for="first-name">
+                      First name <span aria-hidden="true" class="text-red-400 normal-case">*</span>
+                    </label>
+                    <input
+                      id="first-name"
+                      name="name"
+                      type="text"
+                      placeholder="Your name"
+                      required
+                      aria-required="true"
+                      aria-describedby="error-name"
+                      aria-invalid="false"
+                      class="w-full px-3.5 py-2.5 rounded-xl border border-slate/15 font-body text-sm text-slate placeholder-slate/30 focus:outline-none focus:border-mint transition-all"
+                    />
+                    <p id="error-name" role="alert" class="hidden font-body text-xs text-red-500 mt-1.5"></p>
                   </div>
                   <div>
                     <label class="font-body text-xs font-semibold text-slate/60 uppercase tracking-wide block mb-1.5" for="company">Company</label>
-                    <input id="company" name="company" type="text" placeholder="Your company" class="w-full px-3.5 py-2.5 rounded-xl border border-slate/15 font-body text-sm text-slate placeholder-slate/30 focus:outline-none focus:border-mint transition-all" />
+                    <input
+                      id="company"
+                      name="company"
+                      type="text"
+                      placeholder="Your company"
+                      aria-describedby="error-company"
+                      aria-invalid="false"
+                      class="w-full px-3.5 py-2.5 rounded-xl border border-slate/15 font-body text-sm text-slate placeholder-slate/30 focus:outline-none focus:border-mint transition-all"
+                    />
+                    <p id="error-company" role="alert" class="hidden font-body text-xs text-red-500 mt-1.5"></p>
                   </div>
                 </div>
+
                 <div>
-                  <label class="font-body text-xs font-semibold text-slate/60 uppercase tracking-wide block mb-1.5" for="email">Work email</label>
-                  <input id="email" name="email" type="email" placeholder="you@company.com" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate/15 font-body text-sm text-slate placeholder-slate/30 focus:outline-none focus:border-mint transition-all" />
+                  <label class="font-body text-xs font-semibold text-slate/60 uppercase tracking-wide block mb-1.5" for="email">
+                    Work email <span aria-hidden="true" class="text-red-400 normal-case">*</span>
+                  </label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="you@company.com"
+                    required
+                    aria-required="true"
+                    aria-describedby="error-email"
+                    aria-invalid="false"
+                    class="w-full px-3.5 py-2.5 rounded-xl border border-slate/15 font-body text-sm text-slate placeholder-slate/30 focus:outline-none focus:border-mint transition-all"
+                  />
+                  <p id="error-email" role="alert" class="hidden font-body text-xs text-red-500 mt-1.5"></p>
                 </div>
+
                 <div>
-                  <label class="font-body text-xs font-semibold text-slate/60 uppercase tracking-wide block mb-1.5" for="capacity">Installed capacity (MW)</label>
-                  <select id="capacity" name="capacity" class="w-full px-3.5 py-2.5 rounded-xl border border-slate/15 font-body text-sm text-slate focus:outline-none focus:border-mint transition-all bg-white">
+                  <label class="font-body text-xs font-semibold text-slate/60 uppercase tracking-wide block mb-1.5" for="capacity">
+                    Installed capacity (MW) <span aria-hidden="true" class="text-red-400 normal-case">*</span>
+                  </label>
+                  <select
+                    id="capacity"
+                    name="capacity"
+                    required
+                    aria-required="true"
+                    aria-describedby="error-capacity"
+                    aria-invalid="false"
+                    class="w-full px-3.5 py-2.5 rounded-xl border border-slate/15 font-body text-sm text-slate focus:outline-none focus:border-mint transition-all bg-white"
+                  >
                     <option value="">Select a range</option>
                     <option>1 – 10 MW</option>
                     <option>10 – 50 MW</option>
                     <option>50 – 200 MW</option>
                     <option>200 MW+</option>
                   </select>
-                </div>
-                <div>
-                  <label class="font-body text-xs font-semibold text-slate/60 uppercase tracking-wide block mb-1.5" for="message">Message (optional)</label>
-                  <textarea id="message" name="message" rows="3" placeholder="Tell us about your solar farm…" class="w-full px-3.5 py-2.5 rounded-xl border border-slate/15 font-body text-sm text-slate placeholder-slate/30 focus:outline-none focus:border-mint transition-all resize-none"></textarea>
+                  <p id="error-capacity" role="alert" class="hidden font-body text-xs text-red-500 mt-1.5"></p>
                 </div>
 
-                <!-- Error banner -->
+                <div>
+                  <label class="font-body text-xs font-semibold text-slate/60 uppercase tracking-wide block mb-1.5" for="message">Message (optional)</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="3"
+                    placeholder="Tell us about your solar farm…"
+                    aria-describedby="error-message"
+                    aria-invalid="false"
+                    class="w-full px-3.5 py-2.5 rounded-xl border border-slate/15 font-body text-sm text-slate placeholder-slate/30 focus:outline-none focus:border-mint transition-all resize-none"
+                  ></textarea>
+                  <p id="error-message" role="alert" class="hidden font-body text-xs text-red-500 mt-1.5"></p>
+                </div>
+
+                <!-- Network error banner -->
                 <div id="form-error" class="hidden items-center gap-2.5 px-4 py-3 rounded-xl border border-red-200 bg-red-50">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" class="shrink-0"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
                   <p class="font-body text-xs text-red-600">Something went wrong. Please try again or email us directly.</p>
@@ -144,15 +211,69 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY ?? '';
 </section>
 
 <script>
-  const form = document.getElementById('demo-form') as HTMLFormElement | null;
+  import { validateName, validateEmail, validateCapacity, validateCompany, validateMessage } from '../../utils/validate';
+
+  const FIELDS = [
+    { inputId: 'first-name', errorId: 'error-name',     validate: validateName },
+    { inputId: 'email',      errorId: 'error-email',    validate: validateEmail },
+    { inputId: 'capacity',   errorId: 'error-capacity', validate: validateCapacity },
+    { inputId: 'company',    errorId: 'error-company',  validate: validateCompany },
+    { inputId: 'message',    errorId: 'error-message',  validate: validateMessage },
+  ] as const;
+
+  function setFieldError(inputId: string, errorId: string, message: string) {
+    const input = document.getElementById(inputId);
+    const error = document.getElementById(errorId);
+    input?.setAttribute('aria-invalid', 'true');
+    if (error) { error.textContent = message; error.classList.remove('hidden'); }
+  }
+
+  function clearFieldError(inputId: string, errorId: string) {
+    const input = document.getElementById(inputId);
+    const error = document.getElementById(errorId);
+    input?.setAttribute('aria-invalid', 'false');
+    if (error) { error.textContent = ''; error.classList.add('hidden'); }
+  }
+
+  const form      = document.getElementById('demo-form') as HTMLFormElement | null;
   const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement | null;
-  const btnLabel = document.getElementById('btn-label');
+  const btnLabel  = document.getElementById('btn-label');
   const btnLoading = document.getElementById('btn-loading');
   const successEl = document.getElementById('form-success');
-  const errorEl = document.getElementById('form-error');
+  const errorEl   = document.getElementById('form-error');
+
+  // Validate on blur; clear on input when the field becomes valid
+  for (const { inputId, errorId, validate } of FIELDS) {
+    const input = document.getElementById(inputId);
+
+    input?.addEventListener('blur', () => {
+      const val = (input as HTMLInputElement).value;
+      const result = validate(val);
+      if (!result.valid) setFieldError(inputId, errorId, result.message);
+    });
+
+    input?.addEventListener('input', () => {
+      const val = (input as HTMLInputElement).value;
+      if (validate(val).valid) clearFieldError(inputId, errorId);
+    });
+  }
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    // Run all validations before submitting
+    let isValid = true;
+    for (const { inputId, errorId, validate } of FIELDS) {
+      const input = document.getElementById(inputId) as HTMLInputElement | null;
+      const result = validate(input?.value ?? '');
+      if (!result.valid) { setFieldError(inputId, errorId, result.message); isValid = false; }
+      else clearFieldError(inputId, errorId);
+    }
+
+    if (!isValid) {
+      (document.querySelector('[aria-invalid="true"]') as HTMLElement | null)?.focus();
+      return;
+    }
 
     submitBtn!.disabled = true;
     btnLabel?.classList.add('hidden');
