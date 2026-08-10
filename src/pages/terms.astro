@@ -1,0 +1,197 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const lastUpdated = 'August 10, 2026';
+---
+
+<BaseLayout
+  title="Terms of Service — SkyMetrics"
+  description="Terms of service for SkyMetrics. Read the conditions governing the use of our AI-powered thermal inspection platform."
+>
+  <!-- Nav bar -->
+  <header class="border-b border-slate/10 bg-white sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-xl flex items-center justify-center shadow-sm" style="background: linear-gradient(135deg, #E09E50 0%, #c9813a 100%);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="font-heading font-bold text-slate text-xl tracking-tight">SkyMetrics</span>
+      </a>
+      <a href="/" class="font-body text-sm text-slate/60 hover:text-slate transition-colors flex items-center gap-1.5">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back to home
+      </a>
+    </div>
+  </header>
+
+  <main class="bg-background min-h-screen py-16 lg:py-24">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Header -->
+      <div class="mb-12">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-body font-semibold tracking-wide uppercase mb-5 border" style="background: rgba(140,189,185,0.1); color: #2D3E4E; border-color: rgba(140,189,185,0.3);">
+          Legal
+        </div>
+        <h1 class="font-heading font-bold text-slate text-4xl lg:text-5xl leading-tight mb-4">Terms of Service</h1>
+        <p class="font-body text-slate/55 text-sm">Last updated: {lastUpdated}</p>
+      </div>
+
+      <!-- Content -->
+      <div class="bg-white rounded-2xl border border-slate/8 divide-y divide-slate/8">
+
+        <div class="px-8 py-7">
+          <p class="font-body text-slate/70 text-sm leading-relaxed">
+            These Terms of Service ("Terms") govern your access to and use of the services provided by <strong class="text-slate font-semibold">SkyMetrics</strong> ("we", "us", or "our"), including our website at <strong class="text-slate font-semibold">skymetrics.cloud</strong> and our AI-powered thermographic inspection platform ("the Platform"). By requesting a demo or entering into a service agreement with us, you agree to be bound by these Terms.
+          </p>
+        </div>
+
+        <!-- 1. Services -->
+        <div class="px-8 py-7">
+          <h2 class="font-heading font-bold text-slate text-lg mb-3">1. Description of Services</h2>
+          <p class="font-body text-slate/70 text-sm leading-relaxed mb-3">
+            SkyMetrics provides a B2B platform for automated thermographic inspection of photovoltaic solar farms. Our services include:
+          </p>
+          <ul class="space-y-2">
+            {[
+              'AI-powered analysis of drone thermal images using Claude Vision (Anthropic).',
+              'Automated classification of panel faults: broken diodes, dead cells, dirt accumulation, and disconnections.',
+              'GPS-georeferenced anomaly maps with PostGIS spatial indexing.',
+              'Downloadable PDF inspection reports with fault summaries and temperature deltas.',
+              'Batch upload of up to 100 thermal images or a single ZIP archive per inspection.',
+              'Real-time webhook alerts for critical faults (ΔT > 15°C).',
+              'REST API with OpenAPI 3.0.3 documentation for third-party integrations.',
+            ].map(item => (
+              <li class="flex items-start gap-3 font-body text-sm text-slate/70">
+                <span class="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style="background: #8CBDB9;"></span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- 2. Access -->
+        <div class="px-8 py-7">
+          <h2 class="font-heading font-bold text-slate text-lg mb-3">2. Access and Accounts</h2>
+          <p class="font-body text-slate/70 text-sm leading-relaxed mb-3">
+            Access to the Platform is granted following a demo request and the execution of a service agreement. You are responsible for:
+          </p>
+          <ul class="space-y-2">
+            {[
+              'Maintaining the confidentiality of your account credentials.',
+              'All activities that occur under your account.',
+              'Notifying us immediately of any unauthorised use at contact@skymetrics.cloud.',
+            ].map(item => (
+              <li class="flex items-start gap-3 font-body text-sm text-slate/70">
+                <span class="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style="background: #8CBDB9;"></span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- 3. Acceptable Use -->
+        <div class="px-8 py-7">
+          <h2 class="font-heading font-bold text-slate text-lg mb-3">3. Acceptable Use</h2>
+          <p class="font-body text-slate/70 text-sm leading-relaxed mb-3">You agree not to:</p>
+          <ul class="space-y-2">
+            {[
+              'Use the Platform for any purpose other than inspecting photovoltaic installations you own or are authorised to inspect.',
+              'Upload images that do not originate from legitimate drone thermal inspections.',
+              'Attempt to reverse-engineer, decompile, or extract the underlying AI models or source code.',
+              'Resell, sublicense, or redistribute Platform outputs without our prior written consent.',
+              'Use the Platform in a manner that violates any applicable law or regulation.',
+              'Introduce malware, viruses, or any code designed to disrupt the Platform.',
+            ].map(item => (
+              <li class="flex items-start gap-3 font-body text-sm text-slate/70">
+                <span class="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style="background: #E09E50;"></span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- 4. Intellectual Property -->
+        <div class="px-8 py-7">
+          <h2 class="font-heading font-bold text-slate text-lg mb-3">4. Intellectual Property</h2>
+          <p class="font-body text-slate/70 text-sm leading-relaxed mb-3">
+            All rights, title, and interest in the Platform — including its software, algorithms, design, and documentation — remain the exclusive property of SkyMetrics.
+          </p>
+          <p class="font-body text-slate/70 text-sm leading-relaxed">
+            You retain full ownership of the thermal images you upload. The inspection reports, anomaly maps, and PDF documents generated from your images are licensed to you for internal business use. SkyMetrics may use anonymised, aggregated data derived from inspections to improve the Platform, provided no individual farm or client can be identified.
+          </p>
+        </div>
+
+        <!-- 5. Pricing -->
+        <div class="px-8 py-7">
+          <h2 class="font-heading font-bold text-slate text-lg mb-3">5. Pricing and Payment</h2>
+          <p class="font-body text-slate/70 text-sm leading-relaxed">
+            Pricing is agreed individually in writing prior to each inspection engagement. All fees are quoted in Euros (EUR) and are exclusive of applicable VAT. Payment terms, invoicing schedules, and accepted payment methods are specified in the service agreement. We reserve the right to suspend access to the Platform if invoices remain unpaid beyond the agreed due date.
+          </p>
+        </div>
+
+        <!-- 6. Availability -->
+        <div class="px-8 py-7">
+          <h2 class="font-heading font-bold text-slate text-lg mb-3">6. Platform Availability</h2>
+          <p class="font-body text-slate/70 text-sm leading-relaxed">
+            We strive to maintain high availability of the Platform but do not guarantee uninterrupted access. Scheduled maintenance will be communicated in advance where possible. We are not liable for downtime caused by third-party infrastructure providers (Google Cloud, Vercel, Anthropic) or events outside our reasonable control.
+          </p>
+        </div>
+
+        <!-- 7. Disclaimer -->
+        <div class="px-8 py-7">
+          <h2 class="font-heading font-bold text-slate text-lg mb-3">7. Disclaimer of Warranties</h2>
+          <p class="font-body text-slate/70 text-sm leading-relaxed">
+            The Platform is provided "as is". While we work to maintain high accuracy in fault classification, AI analysis results are probabilistic and should be validated by qualified engineers before undertaking maintenance work. SkyMetrics does not warrant that inspection results are error-free or suitable for any specific regulatory compliance purpose.
+          </p>
+        </div>
+
+        <!-- 8. Limitation of Liability -->
+        <div class="px-8 py-7">
+          <h2 class="font-heading font-bold text-slate text-lg mb-3">8. Limitation of Liability</h2>
+          <p class="font-body text-slate/70 text-sm leading-relaxed">
+            To the fullest extent permitted by applicable law, SkyMetrics shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the Platform, including but not limited to loss of revenue, data loss, or equipment damage resulting from actions taken based on inspection reports. Our total aggregate liability for any claim shall not exceed the fees paid by you in the three months preceding the claim.
+          </p>
+        </div>
+
+        <!-- 9. Termination -->
+        <div class="px-8 py-7">
+          <h2 class="font-heading font-bold text-slate text-lg mb-3">9. Termination</h2>
+          <p class="font-body text-slate/70 text-sm leading-relaxed">
+            Either party may terminate the service agreement with 30 days' written notice. We may suspend or terminate access immediately if you breach these Terms, fail to make payment, or engage in conduct that damages the Platform or other users. Upon termination, your right to access the Platform ceases and we will delete your data in accordance with our <a href="/privacy" class="text-slate underline hover:text-solar transition-colors">Privacy Policy</a>.
+          </p>
+        </div>
+
+        <!-- 10. Governing Law -->
+        <div class="px-8 py-7">
+          <h2 class="font-heading font-bold text-slate text-lg mb-3">10. Governing Law and Disputes</h2>
+          <p class="font-body text-slate/70 text-sm leading-relaxed">
+            These Terms are governed by the laws of <strong class="text-slate">Poland</strong> and, where applicable, the laws of the European Union. Any dispute arising from these Terms shall first be subject to good-faith negotiation. If unresolved, disputes shall be submitted to the exclusive jurisdiction of the courts of Warsaw, Poland.
+          </p>
+        </div>
+
+        <!-- 11. Changes -->
+        <div class="px-8 py-7">
+          <h2 class="font-heading font-bold text-slate text-lg mb-3">11. Changes to These Terms</h2>
+          <p class="font-body text-slate/70 text-sm leading-relaxed">
+            We may update these Terms from time to time. We will notify active clients by email at least 14 days before material changes take effect. Continued use of the Platform after that date constitutes acceptance of the updated Terms. The "Last updated" date at the top of this page reflects the most recent revision.
+          </p>
+        </div>
+
+        <!-- 12. Contact -->
+        <div class="px-8 py-7">
+          <h2 class="font-heading font-bold text-slate text-lg mb-3">12. Contact</h2>
+          <p class="font-body text-slate/70 text-sm leading-relaxed">
+            For any questions regarding these Terms, please contact us at <a href="mailto:contact@skymetrics.cloud" class="text-slate underline hover:text-solar transition-colors">contact@skymetrics.cloud</a>.
+          </p>
+        </div>
+
+      </div>
+
+      <p class="text-center font-body text-xs text-slate/40 mt-8">
+        © {new Date().getFullYear()} SkyMetrics. All rights reserved.
+      </p>
+    </div>
+  </main>
+</BaseLayout>
