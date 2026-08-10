@@ -1,0 +1,207 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const lastUpdated = 'August 10, 2026';
+---
+
+<BaseLayout
+  title="Privacy Policy — SkyMetrics"
+  description="Privacy policy for SkyMetrics. Learn how we collect, use, and protect your personal data in compliance with GDPR."
+>
+  <!-- Nav bar -->
+  <header class="border-b border-slate/10 bg-white sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-xl flex items-center justify-center shadow-sm" style="background: linear-gradient(135deg, #E09E50 0%, #c9813a 100%);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="font-heading font-bold text-slate text-xl tracking-tight">SkyMetrics</span>
+      </a>
+      <a href="/" class="font-body text-sm text-slate/60 hover:text-slate transition-colors flex items-center gap-1.5">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back to home
+      </a>
+    </div>
+  </header>
+
+  <main class="bg-background min-h-screen py-16 lg:py-24">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Header -->
+      <div class="mb-12">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-body font-semibold tracking-wide uppercase mb-5 border" style="background: rgba(140,189,185,0.1); color: #2D3E4E; border-color: rgba(140,189,185,0.3);">
+          Legal
+        </div>
+        <h1 class="font-heading font-bold text-slate text-4xl lg:text-5xl leading-tight mb-4">Privacy Policy</h1>
+        <p class="font-body text-slate/55 text-sm">Last updated: {lastUpdated}</p>
+      </div>
+
+      <!-- Content -->
+      <div class="bg-white rounded-2xl border border-slate/8 divide-y divide-slate/8">
+
+        <div class="px-8 py-7">
+          <p class="font-body text-slate/70 text-sm leading-relaxed">
+            This Privacy Policy explains how <strong class="text-slate font-semibold">SkyMetrics</strong> ("we", "us", or "our") collects, uses, and protects personal data when you visit <strong class="text-slate font-semibold">skymetrics.cloud</strong> or submit a demo request through our contact form. We are committed to protecting your privacy and complying with the General Data Protection Regulation (GDPR).
+          </p>
+        </div>
+
+        <!-- 1. Data Controller -->
+        <div class="px-8 py-7">
+          <h2 class="font-heading font-bold text-slate text-lg mb-3">1. Data Controller</h2>
+          <p class="font-body text-slate/70 text-sm leading-relaxed mb-3">
+            The data controller responsible for your personal data is:
+          </p>
+          <div class="bg-background rounded-xl p-4 font-body text-sm text-slate/70 space-y-1">
+            <p><strong class="text-slate">SkyMetrics</strong></p>
+            <p>Warsaw, Poland</p>
+            <p>Email: <a href="mailto:contact@skymetrics.cloud" class="text-slate underline hover:text-solar transition-colors">contact@skymetrics.cloud</a></p>
+          </div>
+        </div>
+
+        <!-- 2. Data Collected -->
+        <div class="px-8 py-7">
+          <h2 class="font-heading font-bold text-slate text-lg mb-3">2. Data We Collect</h2>
+          <p class="font-body text-slate/70 text-sm leading-relaxed mb-4">
+            We collect personal data only when you voluntarily submit our <strong class="text-slate">Request a Demo</strong> form. The data collected includes:
+          </p>
+          <ul class="space-y-2">
+            {[
+              ['First name', 'To address you personally in our response.'],
+              ['Company name', 'To understand your organisation and tailor our proposal.'],
+              ['Work email address', 'To send you our response and inspection proposal.'],
+              ['Installed capacity (MW)', 'To assess the scope of a potential inspection.'],
+              ['Optional message', 'Any additional context you choose to share.'],
+            ].map(([field, purpose]) => (
+              <li class="flex items-start gap-3 font-body text-sm">
+                <span class="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style="background: #8CBDB9;"></span>
+                <span class="text-slate/70"><strong class="text-slate">{field}:</strong> {purpose}</span>
+              </li>
+            ))}
+          </ul>
+          <p class="font-body text-slate/70 text-sm leading-relaxed mt-4">
+            We also collect standard server logs (IP address, browser type, referring URL) through Vercel's hosting infrastructure for security and performance monitoring purposes.
+          </p>
+        </div>
+
+        <!-- 3. Legal Basis -->
+        <div class="px-8 py-7">
+          <h2 class="font-heading font-bold text-slate text-lg mb-3">3. Legal Basis for Processing</h2>
+          <p class="font-body text-slate/70 text-sm leading-relaxed">
+            We process your personal data on the basis of <strong class="text-slate">legitimate interest</strong> (Article 6(1)(f) GDPR) — specifically, to respond to your commercial enquiry and provide information about our inspection services. By submitting the form you acknowledge that you have read this policy.
+          </p>
+        </div>
+
+        <!-- 4. How We Use Data -->
+        <div class="px-8 py-7">
+          <h2 class="font-heading font-bold text-slate text-lg mb-3">4. How We Use Your Data</h2>
+          <p class="font-body text-slate/70 text-sm leading-relaxed mb-3">We use your data exclusively to:</p>
+          <ul class="space-y-2">
+            {[
+              'Respond to your demo request within 2 business hours.',
+              'Prepare a tailored inspection proposal for your solar farm.',
+              'Follow up on the status of your enquiry if we do not hear back.',
+            ].map(item => (
+              <li class="flex items-start gap-3 font-body text-sm text-slate/70">
+                <span class="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style="background: #8CBDB9;"></span>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <p class="font-body text-slate/70 text-sm leading-relaxed mt-4">
+            We do not use your data for marketing purposes, profiling, or automated decision-making.
+          </p>
+        </div>
+
+        <!-- 5. Data Processors -->
+        <div class="px-8 py-7">
+          <h2 class="font-heading font-bold text-slate text-lg mb-3">5. Third-Party Data Processors</h2>
+          <p class="font-body text-slate/70 text-sm leading-relaxed mb-4">
+            We use the following third-party services that may process your data on our behalf:
+          </p>
+          <div class="space-y-3">
+            {[
+              {
+                name: 'Web3Forms',
+                role: 'Form submission handler — transmits form data to our email inbox.',
+                link: 'https://web3forms.com/privacy',
+              },
+              {
+                name: 'Vercel',
+                role: 'Website hosting — serves this website and processes server logs.',
+                link: 'https://vercel.com/legal/privacy-policy',
+              },
+            ].map(p => (
+              <div class="bg-background rounded-xl p-4 font-body text-sm">
+                <p class="font-semibold text-slate mb-0.5">{p.name}</p>
+                <p class="text-slate/60 text-xs">{p.role}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- 6. Retention -->
+        <div class="px-8 py-7">
+          <h2 class="font-heading font-bold text-slate text-lg mb-3">6. Data Retention</h2>
+          <p class="font-body text-slate/70 text-sm leading-relaxed">
+            We retain your contact data for a maximum of <strong class="text-slate">12 months</strong> from the date of submission. If no commercial relationship is established within that period, your data is deleted. If a contract is signed, data is retained for the duration required by applicable law.
+          </p>
+        </div>
+
+        <!-- 7. Your Rights -->
+        <div class="px-8 py-7">
+          <h2 class="font-heading font-bold text-slate text-lg mb-3">7. Your Rights Under GDPR</h2>
+          <p class="font-body text-slate/70 text-sm leading-relaxed mb-4">As a data subject you have the right to:</p>
+          <ul class="space-y-2">
+            {[
+              ['Access', 'Request a copy of the personal data we hold about you.'],
+              ['Rectification', 'Ask us to correct inaccurate or incomplete data.'],
+              ['Erasure', 'Request deletion of your data ("right to be forgotten").'],
+              ['Restriction', 'Ask us to restrict processing of your data.'],
+              ['Portability', 'Receive your data in a structured, machine-readable format.'],
+              ['Objection', 'Object to processing based on legitimate interest.'],
+            ].map(([right, desc]) => (
+              <li class="flex items-start gap-3 font-body text-sm">
+                <span class="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style="background: #E09E50;"></span>
+                <span class="text-slate/70"><strong class="text-slate">{right}:</strong> {desc}</span>
+              </li>
+            ))}
+          </ul>
+          <p class="font-body text-slate/70 text-sm leading-relaxed mt-4">
+            To exercise any of these rights, contact us at <a href="mailto:contact@skymetrics.cloud" class="text-slate underline hover:text-solar transition-colors">contact@skymetrics.cloud</a>. We will respond within 30 days. You also have the right to lodge a complaint with the <strong class="text-slate">Polish Data Protection Authority (UODO)</strong> at <span class="text-slate">uodo.gov.pl</span>.
+          </p>
+        </div>
+
+        <!-- 8. Cookies -->
+        <div class="px-8 py-7">
+          <h2 class="font-heading font-bold text-slate text-lg mb-3">8. Cookies</h2>
+          <p class="font-body text-slate/70 text-sm leading-relaxed">
+            This website does not use tracking cookies, analytics cookies, or advertising cookies. Vercel may set technical cookies strictly necessary for the operation of the website. No consent banner is required as no non-essential cookies are used.
+          </p>
+        </div>
+
+        <!-- 9. Changes -->
+        <div class="px-8 py-7">
+          <h2 class="font-heading font-bold text-slate text-lg mb-3">9. Changes to This Policy</h2>
+          <p class="font-body text-slate/70 text-sm leading-relaxed">
+            We may update this policy from time to time. The "Last updated" date at the top of this page will always reflect the most recent version. Continued use of the website after changes constitutes acceptance of the updated policy.
+          </p>
+        </div>
+
+        <!-- 10. Contact -->
+        <div class="px-8 py-7">
+          <h2 class="font-heading font-bold text-slate text-lg mb-3">10. Contact</h2>
+          <p class="font-body text-slate/70 text-sm leading-relaxed">
+            For any privacy-related questions or requests, please contact us at <a href="mailto:contact@skymetrics.cloud" class="text-slate underline hover:text-solar transition-colors">contact@skymetrics.cloud</a>.
+          </p>
+        </div>
+
+      </div>
+
+      <p class="text-center font-body text-xs text-slate/40 mt-8">
+        © {new Date().getFullYear()} SkyMetrics. All rights reserved.
+      </p>
+    </div>
+  </main>
+</BaseLayout>
