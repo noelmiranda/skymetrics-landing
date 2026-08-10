@@ -1,0 +1,179 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const lastUpdated = 'August 10, 2026';
+---
+
+<BaseLayout
+  title="Cookie Policy — SkyMetrics"
+  description="Cookie policy for SkyMetrics. Learn which cookies we use and how to control them."
+>
+  <!-- Nav bar -->
+  <header class="border-b border-slate/10 bg-white sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-xl flex items-center justify-center shadow-sm" style="background: linear-gradient(135deg, #E09E50 0%, #c9813a 100%);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="font-heading font-bold text-slate text-xl tracking-tight">SkyMetrics</span>
+      </a>
+      <a href="/" class="font-body text-sm text-slate/60 hover:text-slate transition-colors flex items-center gap-1.5">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back to home
+      </a>
+    </div>
+  </header>
+
+  <main class="bg-background min-h-screen py-16 lg:py-24">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Header -->
+      <div class="mb-12">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-body font-semibold tracking-wide uppercase mb-5 border" style="background: rgba(140,189,185,0.1); color: #2D3E4E; border-color: rgba(140,189,185,0.3);">
+          Legal
+        </div>
+        <h1 class="font-heading font-bold text-slate text-4xl lg:text-5xl leading-tight mb-4">Cookie Policy</h1>
+        <p class="font-body text-slate/55 text-sm">Last updated: {lastUpdated}</p>
+      </div>
+
+      <!-- Content -->
+      <div class="bg-white rounded-2xl border border-slate/8 divide-y divide-slate/8">
+
+        <div class="px-8 py-7">
+          <p class="font-body text-slate/70 text-sm leading-relaxed">
+            This Cookie Policy explains how <strong class="text-slate font-semibold">SkyMetrics</strong> uses cookies and similar technologies on <strong class="text-slate font-semibold">skymetrics.cloud</strong>. We have designed this website with privacy in mind: we use no tracking cookies, no analytics cookies, and no advertising cookies.
+          </p>
+        </div>
+
+        <!-- 1. What are cookies -->
+        <div class="px-8 py-7">
+          <h2 class="font-heading font-bold text-slate text-lg mb-3">1. What Are Cookies</h2>
+          <p class="font-body text-slate/70 text-sm leading-relaxed">
+            Cookies are small text files stored on your device when you visit a website. They are widely used to make websites work efficiently and to provide information to site owners. Cookies can be "session cookies" (deleted when you close your browser) or "persistent cookies" (stored for a defined period).
+          </p>
+        </div>
+
+        <!-- 2. Cookies we use -->
+        <div class="px-8 py-7">
+          <h2 class="font-heading font-bold text-slate text-lg mb-3">2. Cookies We Use</h2>
+
+          <!-- Strictly necessary -->
+          <div class="mb-6">
+            <div class="flex items-center gap-2.5 mb-3">
+              <span class="inline-flex px-2.5 py-1 rounded-full text-xs font-body font-semibold" style="background: rgba(140,189,185,0.15); color: #2D3E4E;">Strictly necessary</span>
+              <span class="font-body text-xs text-slate/50">Always active — no consent required</span>
+            </div>
+            <p class="font-body text-slate/70 text-sm leading-relaxed mb-4">
+              These cookies are essential for the website to function correctly. They cannot be disabled.
+            </p>
+            <div class="overflow-x-auto rounded-xl border border-slate/8">
+              <table class="w-full font-body text-xs">
+                <thead>
+                  <tr class="bg-background border-b border-slate/8">
+                    <th class="text-left px-4 py-3 text-slate/60 font-semibold">Cookie</th>
+                    <th class="text-left px-4 py-3 text-slate/60 font-semibold">Provider</th>
+                    <th class="text-left px-4 py-3 text-slate/60 font-semibold">Purpose</th>
+                    <th class="text-left px-4 py-3 text-slate/60 font-semibold">Expiry</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate/8">
+                  {[
+                    ['__vercel_live_token', 'Vercel', 'Required for Vercel edge network routing and DDoS protection.', 'Session'],
+                    ['_vercel_jwt', 'Vercel', 'Authentication token for password-protected preview deployments.', 'Session'],
+                  ].map(([name, provider, purpose, expiry]) => (
+                    <tr class="hover:bg-background/50 transition-colors">
+                      <td class="px-4 py-3 font-mono text-slate">{name}</td>
+                      <td class="px-4 py-3 text-slate/60">{provider}</td>
+                      <td class="px-4 py-3 text-slate/60">{purpose}</td>
+                      <td class="px-4 py-3 text-slate/60">{expiry}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Analytics / tracking -->
+          <div>
+            <div class="flex items-center gap-2.5 mb-3">
+              <span class="inline-flex px-2.5 py-1 rounded-full text-xs font-body font-semibold" style="background: rgba(224,158,80,0.12); color: #2D3E4E;">Analytics & tracking</span>
+              <span class="font-body text-xs text-slate/50">Not used</span>
+            </div>
+            <div class="flex items-start gap-3 px-4 py-4 rounded-xl border border-slate/8 bg-background">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8CBDB9" stroke-width="2.5" class="shrink-0 mt-0.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke-linecap="round"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <p class="font-body text-sm text-slate/70">
+                We do not use Google Analytics, Hotjar, Meta Pixel, or any other analytics or advertising platform. No data about your browsing behaviour is collected for marketing or profiling purposes.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Third-party cookies -->
+        <div class="px-8 py-7">
+          <h2 class="font-heading font-bold text-slate text-lg mb-3">3. Third-Party Cookies</h2>
+          <p class="font-body text-slate/70 text-sm leading-relaxed mb-3">
+            Our website is hosted on <strong class="text-slate">Vercel</strong>. Vercel may set strictly necessary cookies for edge routing and security. We do not embed third-party widgets (social media buttons, video players, maps) that could set additional cookies without your knowledge.
+          </p>
+          <p class="font-body text-slate/70 text-sm leading-relaxed">
+            When you submit the contact form, your data is transmitted to <strong class="text-slate">Web3Forms</strong> via a secure API call. Web3Forms does not set cookies on your browser.
+          </p>
+        </div>
+
+        <!-- 4. No consent banner -->
+        <div class="px-8 py-7">
+          <h2 class="font-heading font-bold text-slate text-lg mb-3">4. Why We Have No Cookie Banner</h2>
+          <p class="font-body text-slate/70 text-sm leading-relaxed">
+            Under the EU ePrivacy Directive and GDPR, a consent banner is only required when a website uses non-essential cookies (analytics, advertising, personalisation). Since we use only strictly necessary technical cookies, no consent banner is required and none is displayed.
+          </p>
+        </div>
+
+        <!-- 5. How to control cookies -->
+        <div class="px-8 py-7">
+          <h2 class="font-heading font-bold text-slate text-lg mb-3">5. How to Control Cookies</h2>
+          <p class="font-body text-slate/70 text-sm leading-relaxed mb-4">
+            You can manage or delete cookies through your browser settings at any time. Instructions for the most common browsers:
+          </p>
+          <ul class="space-y-2">
+            {[
+              ['Google Chrome', 'Settings → Privacy and security → Cookies and other site data'],
+              ['Mozilla Firefox', 'Settings → Privacy & Security → Cookies and Site Data'],
+              ['Safari', 'Preferences → Privacy → Manage Website Data'],
+              ['Microsoft Edge', 'Settings → Cookies and site permissions → Cookies and site data'],
+            ].map(([browser, path]) => (
+              <li class="flex items-start gap-3 font-body text-sm text-slate/70">
+                <span class="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style="background: #8CBDB9;"></span>
+                <span><strong class="text-slate">{browser}:</strong> {path}</span>
+              </li>
+            ))}
+          </ul>
+          <p class="font-body text-slate/70 text-sm leading-relaxed mt-4">
+            Please note that disabling strictly necessary cookies may affect the functionality of this website.
+          </p>
+        </div>
+
+        <!-- 6. Changes -->
+        <div class="px-8 py-7">
+          <h2 class="font-heading font-bold text-slate text-lg mb-3">6. Changes to This Policy</h2>
+          <p class="font-body text-slate/70 text-sm leading-relaxed">
+            We will update this policy if we introduce new technologies that use cookies. The "Last updated" date at the top of this page will always reflect the most recent version.
+          </p>
+        </div>
+
+        <!-- 7. Contact -->
+        <div class="px-8 py-7">
+          <h2 class="font-heading font-bold text-slate text-lg mb-3">7. Contact</h2>
+          <p class="font-body text-slate/70 text-sm leading-relaxed">
+            For any questions about this Cookie Policy, contact us at <a href="mailto:contact@skymetrics.cloud" class="text-slate underline hover:text-solar transition-colors">contact@skymetrics.cloud</a>. For broader privacy matters, please refer to our <a href="/privacy" class="text-slate underline hover:text-solar transition-colors">Privacy Policy</a>.
+          </p>
+        </div>
+
+      </div>
+
+      <p class="text-center font-body text-xs text-slate/40 mt-8">
+        © {new Date().getFullYear()} SkyMetrics. All rights reserved.
+      </p>
+    </div>
+  </main>
+</BaseLayout>
