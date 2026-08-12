@@ -459,4 +459,4 @@ Email: contact@skymetrics.cloud
 | 4 | Why We Have No Cookie Banner | Only strictly necessary cookies → no consent required under ePrivacy / GDPR |
 | 5 | How to Control Cookies | Browser settings for Chrome, Firefox, Safari, Edge |
 | 6 | Changes to This Policy | "Last updated" date reflects latest version |
-| 7 | Contact | contact@skymetrics.cloud · SkyMetrics · Gdańsk, Poland |
+| 7 | Contact | Intro text + address block: SkyMetrics · Gdańsk, Poland · contact@skymetrics.cloud |
