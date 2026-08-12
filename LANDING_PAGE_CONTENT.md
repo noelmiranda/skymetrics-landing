@@ -361,6 +361,8 @@ CTA button: Request a Demo → `/#contact`
 
 All three legal pages share the same layout: sticky nav with back-to-home link, `Legal` pill tag, `h1` title, `Last updated: August 10, 2026`, and a white card divided into numbered sections.
 
+**Logo (all legal pages):** Blue gradient `#4A90C4 → #3A7AB0` — matches main nav, footer, and About page.
+
 ### Shared company address block
 
 Appears in Privacy Policy (§1 Data Controller) and Cookie Policy (§7 Contact):
