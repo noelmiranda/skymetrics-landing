@@ -273,7 +273,7 @@
 - Asset Managers
 
 ### Company links
-- About SkyMetrics → `#`
+- About SkyMetrics → `/about`
 - Blog & Insights → `#`
 - Documentation → `#`
 - Contact → `#contact`
