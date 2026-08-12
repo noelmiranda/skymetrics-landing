@@ -10,12 +10,26 @@
 
 | Field | Current value |
 |---|---|
-| `<title>` | SkyMetrics — AI-Powered Drone Thermographic Inspection for Solar Farms |
-| `<meta name="description">` | Detect panel defects in hours, not weeks. SkyMetrics combines drone thermography and AI to deliver actionable inspection reports for utility-scale solar farms. |
-| OG title | (same as `<title>`) |
-| OG description | (same as `<meta name="description">`) |
-| Twitter title | (same as `<title>`) |
-| Twitter description | (same as `<meta name="description">`) |
+| `<title>` | SkyMetrics \| Automated Thermal Drone Analytics for Solar Farms |
+| `<meta name="description">` | SkyMetrics transforms thermographic drone inspections into georeferenced anomaly maps and IEC-compliant O&M reports. Recover lost yield with AI-driven thermal defect detection. |
+| OG title | SkyMetrics \| AI-Powered Thermal Analytics for Solar PV |
+| OG description | Upload raw radiometric drone imagery and receive detailed IEC-compliant anomaly reports within hours. Protect your Performance Ratio. |
+| Twitter title | SkyMetrics \| AI-Powered Thermal Analytics for Solar PV |
+| Twitter description | Upload raw radiometric drone imagery and receive detailed IEC-compliant anomaly reports within hours. Protect your Performance Ratio. |
+
+### JSON-LD Schema
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "SkyMetrics",
+  "applicationCategory": "BusinessApplication",
+  "url": "https://skymetrics.cloud",
+  "description": "Automated thermal analytics and AI anomaly detection for utility-scale solar PV inspection. Turn raw drone thermography into actionable O&M repair plans.",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "category": "SaaS" }
+}
+```
 
 ---
 
@@ -53,25 +67,25 @@
 | Request a Demo | `#contact` |
 | See How It Works | `#how-it-works` |
 
-### Trust badges (below CTAs)
-| Badge text | Icon |
-|---|---|
-| 423 tests · 0 errors | Checkmark |
-| Claude Vision AI | Shield |
-| PostGIS geospatial | Location pin |
+### Trust badges (single row, below CTAs)
+| Primary text | Subtitle | Icon |
+|---|---|---|
+| IEC 62446-3 Compliant | Thermal Standards | Star/standard |
+| Anthropic Vision AI | Automated Diagnostics | Shield |
+| Sub-Meter GPS | PostGIS Geospatial Pinpointing | Location pin |
 
 ### Dashboard mock card (right column)
 | Element | Text |
 |---|---|
-| Window title bar | SkyMetrics — Inspection #INS-2847 |
-| Status indicator | Processing |
-| Fault overlay labels | `broken_diode ⚠`, `dead_cell`, `dirt` |
-| Fault badge | 3 faults detected |
-| Stat — panels | **12** · Panels scanned |
-| Stat — critical | **1** · Critical (ΔT >15°C) |
-| Stat — report | **PDF** · Report ready |
-| Notification title | Claude Vision analysis complete |
-| Notification sub | GPS map + PDF report generated automatically |
+| Window title bar | SkyMetrics — Inspection #INS-2847 (12.4 MW Solar Array) |
+| Status indicator | Radiometric Analysis Active |
+| Fault overlay labels | `broken_diode ⚠`, `dead_cell`, `soiling` |
+| Fault summary badge | 3 anomalies detected (IEC 62446-3) |
+| Stat 1 | **12** · Thermal frames ingested |
+| Stat 2 | **1** · Critical (ΔT > 15°C) |
+| Stat 3 | **PDF** · Executive report ready |
+| Notification title | Vision AI Radiometric Analysis Complete |
+| Notification subtitle | GPS anomaly map + PDF report generated |
 
 ---
 
@@ -81,40 +95,40 @@
 
 ### Section header
 - **Tag pill:** Platform Features
-- **h2:** Everything built. **Everything working.**
-- **Subheading:** SkyMetrics Core is a production-ready B2B platform — 423 automated tests, 0 TypeScript errors — combining Claude Vision AI, PostGIS geospatial indexing, and Google Cloud infrastructure.
+- **h2:** Enterprise Architecture. **Production-Ready.**
+- **Subheading:** SkyMetrics Core is built for enterprise utility-scale solar — backed by rigorous automated testing, zero TypeScript errors, and an end-to-end cloud pipeline combining Vision AI, PostGIS spatial indexing, and Google Cloud infrastructure.
 
 ### Feature cards (6)
 
-**1. Automated Fault Detection**
-- Tag: Claude Vision AI
-- Description: Every thermal image is analyzed by Claude Vision (Anthropic). The model classifies four fault types — broken diodes, dead cells, dirt, and disconnections — with severity levels from low to critical. No manual review needed.
-- Stats: 4 Fault types · 3 Severity levels
+**1. Radiometric Fault & Delta Detection**
+- Tag: Vision AI Engine
+- Description: Analyzes raw thermal frames to extract pixel-level temperature readings and classify core anomalies — broken diodes, dead cells, soiling, and string disconnections — complete with calibrated ΔT severity scoring.
+- Stats: 4 Fault Classes · Exact ΔT Metrics
 
-**2. GPS-Georeferenced Anomaly Map**
+**2. Sub-Meter GPS Anomaly Mapping**
 - Tag: PostGIS + Leaflet
-- Description: Each detected fault is persisted with exact GPS coordinates in a PostGIS-enabled PostgreSQL database. The interactive Leaflet.js map lets field technicians locate any anomaly instantly using bounding-box spatial queries.
-- Stats: WGS-84 Coordinate system · GiST Spatial index
+- Description: Every anomaly is persisted with precise WGS-84 GPS coordinates in a PostGIS spatial database. Interactive Leaflet maps allow field O&M technicians to navigate directly to damaged modules via spatial bounding queries.
+- Stats: WGS-84 Coordinate System · GiST Spatial Index
 
-**3. Instant Inspection Reports**
-- Tag: PDF Reports
-- Description: Every completed inspection generates a downloadable PDF report via PDFKit — anomaly summary, panel-level detail, temperature deltas, severity classifications, and GPS coordinates for every fault found.
-- Stats: PDF Instant download · ΔT 15°C Critical threshold
+**3. Executive Inspection Reports**
+- Tag: PDFKit Engine
+- Description: Generates publication-grade PDF reports instantly — featuring site anomaly summaries, module-level thermal metrics, temperature deltas (ΔT), severity rankings, and exact GPS coordinates for field intervention.
+- Stats: Instant PDF Export · ΔT > 15°C Threshold
 
-**4. Upload 100 Images or a ZIP**
-- Tag: Batch Upload
-- Description: Drone operators upload up to 100 thermal images at once — or drop a single ZIP from their FLIR software. Files go directly to Google Cloud Storage via signed URLs. One failed image never aborts the rest of the batch.
-- Stats: 100 Images per batch · ZIP Archive support
+**4. High-Throughput Batch Ingestion**
+- Tag: GCS Signed URLs
+- Description: Stream up to 100 thermal frames simultaneously or upload single ZIP archives directly from DJI/FLIR software via Google Cloud Storage signed URLs. Per-file failure isolation ensures seamless batch processing.
+- Stats: 100 Frames/Batch · Native ZIP Archive
 
-**5. Critical Fault Notifications**
-- Tag: Real-Time Alerts
-- Description: When an anomaly is classified as critical or exceeds the 15°C temperature delta threshold (industry standard for crystalline silicon PV), the alert system fires immediately — console log plus webhook POST to any configured endpoint.
-- Stats: Webhook Alert delivery · Instant On detection
+**5. Automated Critical Hotspot Alerts**
+- Tag: Real-Time Webhooks
+- Description: When an anomaly breaches the industry-standard 15°C temperature delta threshold for crystalline silicon PV, the platform immediately triggers automated webhooks to alert your asset management system.
+- Stats: Instant Webhook Dispatch · IEC 62446-3 Aligned
 
-**6. Fully Documented API**
-- Tag: REST API
-- Description: Complete REST API with OpenAPI 3.0.3 documentation (Swagger UI at /docs). Integrate SkyMetrics into your existing SCADA, CMMS, or monitoring platform. Async batch analysis returns 202 Accepted immediately.
-- Stats: OpenAPI 3.0.3 spec · 202 Async response
+**6. Enterprise REST API & System Integration**
+- Tag: OpenAPI 3.0.3
+- Description: Complete REST API with OpenAPI 3.0.3 specifications and interactive Swagger documentation. Seamlessly export structured anomaly payloads directly into your existing CMMS, asset management, or O&M platforms.
+- Stats: OpenAPI 3.0.3 Spec · Async 202 Ingestion
 
 ---
 
@@ -123,41 +137,41 @@
 **Component:** `src/components/sections/HowItWorks.astro`
 
 ### Section header
-- **Tag pill:** How It Works
-- **h2:** Upload. Analyze. Report. **Fully automated.**
-- **Subheading:** From thermal image upload to GPS-mapped anomaly report — no manual review, no waiting, no guesswork.
+- **Tag pill:** Automated Workflow
+- **h2:** Direct Ingestion. AI Analytics. **Instant Reports.**
+- **Subheading:** Stream raw radiometric drone imagery into actionable intelligence — from cloud upload to sub-meter GPS mapping and executive PDF reporting in minutes.
 
-### Step 01 — Upload Thermal Images
-- **Subtitle:** Batch upload — up to 100 images or a ZIP
-- **Description:** Drone operators upload thermal images through the Svelte 5 admin dashboard. Select individual JPG/PNG files or drop a single ZIP exported from FLIR software. Files upload directly to Google Cloud Storage via signed URLs — the server stays memory-neutral regardless of batch size.
+### Step 01 — 1. Direct Cloud Storage Ingestion
+- **Subtitle:** Batch upload up to 100 radiometric images or ZIP
+- **Description:** Upload radiometric drone imagery directly from your flight operations. Drop individual radiometric JPG/TIFF files or single ZIP archives exported from FLIR or DJI Thermal software. Files stream securely to Google Cloud Storage via signed URLs, keeping backend memory completely neutral.
 - **Detail bullets:**
-  - Drag-and-drop or file browser upload
-  - Up to 100 images or 1 ZIP per batch
-  - Direct-to-GCS signed URL upload
-  - Per-file failure isolation — one bad image never aborts the batch
+  - Drag-and-drop or batch file picker
+  - Up to 100 radiometric images or 1 ZIP archive per run
+  - Direct-to-GCS signed URL streaming
+  - Isolated per-file error handling
 
-### Step 02 — Claude AI Classifies Faults
-- **Subtitle:** Async processing via Google Cloud Tasks
-- **Description:** The API returns 202 Accepted immediately. Google Cloud Tasks dispatches the batch asynchronously. Claude Vision (claude-sonnet-4-6) analyzes each thermal image and returns a structured JSON result: fault type, severity, cell temperature, ambient temperature, and description.
+### Step 02 — 2. Vision AI Radiometric Extraction
+- **Subtitle:** Asynchronous processing via Google Cloud Tasks
+- **Description:** The API acknowledges uploads with an instant 202 Accepted. Google Cloud Tasks dispatches the batch asynchronously, calling Anthropic Vision AI to extract pixel-level temperature data, calculate deltas (ΔT), and classify structural anomalies into structured JSON payloads.
 - **Detail bullets:**
-  - Claude Vision (Anthropic) per image
-  - Detects: broken_diode, dead_cell, dirt, disconnection
-  - Severity: low / medium / critical
-  - ΔT > 15°C auto-flagged as critical (industry standard)
+  - Anthropic Vision AI model execution
+  - Detects: broken_diode, dead_cell, soiling, disconnection
+  - Calibrated severity: Low / Medium / Critical
+  - ΔT > 15°C auto-flagged (IEC 62446-3 standard)
 
-### Step 03 — Map, Report & Alerts
-- **Subtitle:** GPS map + PDF report + webhook alerts
-- **Description:** Results are persisted in PostGIS (WGS-84 coordinates) and surfaced in the admin dashboard as an interactive Leaflet.js map with panel-level markers. A PDF report is generated automatically. Critical faults (ΔT > 15°C) trigger instant webhook notifications.
+### Step 03 — 3. GIS Mapping, PDF Reports & Webhooks
+- **Subtitle:** Sub-meter map + executive PDF + webhooks
+- **Description:** Extracted data is indexed in PostGIS and rendered on an interactive Leaflet map with module-level GPS pins. An executive PDF report is compiled instantly, while severe thermal hot spots fire automated webhook notifications.
 - **Detail bullets:**
-  - Leaflet.js interactive GPS anomaly map
-  - Bounding-box spatial queries (PostGIS GiST index)
-  - PDF report downloadable from the dashboard
-  - Webhook alert for critical-severity faults
+  - Interactive Leaflet GPS map with spatial filters
+  - PostGIS GiST spatial indexing (WGS-84)
+  - Executive PDF report generated automatically
+  - Real-time webhook dispatch for critical anomalies
 
-### Tech stack callout (bottom)
-- **h4:** Built on proven infrastructure
-- **Stack string:** Node.js 24 · TypeScript 6 · Fastify 5 · PostgreSQL 16 + PostGIS 3.4 · Google Cloud Storage & Tasks · Svelte 5 · Leaflet.js · PDFKit · Anthropic Claude Vision
-- **CTA button:** Request access → `#contact`
+### Tech stack banner (bottom)
+- **h4:** Built on Modern, Battle-Tested Infrastructure
+- **Stack string:** Node.js 24 · TypeScript 6 · Fastify 5 · PostgreSQL 16 + PostGIS 3.4 · Google Cloud Storage & Tasks · Svelte 5 · Leaflet.js · PDFKit · Anthropic Vision AI
+- **CTA button:** Request Access → `#contact`
 
 ---
 
@@ -166,32 +180,31 @@
 **Component:** `src/components/sections/Metrics.astro`
 
 ### Section header
-- **Tag pill:** Platform by the numbers
-- **h2:** Production-ready. **No guesswork.**
-- **Subheading:** SkyMetrics Core v1.5.0 ships with a complete test suite, a documented API, and real infrastructure — not a prototype.
+- **Tag pill:** Platform Credentials
+- **h2:** Enterprise Credentials. **Battle-Tested Reliability.**
+- **Subheading:** SkyMetrics Core v1.5.0 is built on enterprise-grade infrastructure — validated with automated test suites, fully documented APIs, and real cloud services ready for scale.
 
 ### KPI cards (4)
 
 | Value | Label | Description |
 |---|---|---|
-| 423 | Automated tests | 398 backend (Jest) + 25 frontend (Vitest) — 0 failures, 0 TypeScript errors across the entire codebase |
-| 4 | Fault types detected | Broken diodes, dead cells, dirt accumulation, and disconnections — classified automatically by Claude Vision AI |
-| 100 | Images per batch | Upload up to 100 thermal images or a single ZIP archive per inspection run, with per-file failure isolation |
-| ΔT 15°C | Critical alert threshold | Industry-standard temperature delta for crystalline silicon PV — any anomaly above this triggers an instant webhook alert |
+| 423 | Automated Quality Checks | 398 backend (Jest) + 25 frontend (Vitest) test suites passing with 0 TypeScript errors for maximum platform stability |
+| 4 | Core PV Anomaly Classes | Bypass diode failures, dead cells, soiling accumulation, and string disconnections classified with automated severity scoring |
+| 100 | Radiometric Images / Batch | Stream up to 100 raw radiometric thermal files or a single ZIP archive per run with isolated error handling |
+| ΔT > 15°C | Critical Alert Threshold | IEC 62446-3 temperature delta standard for crystalline silicon PV — severe hotspots fire instant webhook payloads |
 
-### Technology Stack (grid)
+### Technology Stack grid
+- **Heading:** Technology Stack
+- **Subheading:** Built with proven, high-performance infrastructure
 
 | Name | Description |
 |---|---|
-| Claude Vision | Anthropic AI model for thermal image analysis |
-| PostGIS | Geospatial indexing for GPS anomaly coordinates |
-| Google Cloud Tasks | Async batch processing queue |
-| Svelte 5 | Admin dashboard with real-time polling |
-| Leaflet.js | Interactive inspection location maps |
-| PDFKit | Automatic inspection report generation |
-
-- **Section heading:** Technology Stack
-- **Section subheading:** Every component is production-grade and battle-tested
+| Claude Vision | Anthropic AI model for thermal image analysis and radiometric anomaly detection |
+| PostGIS | Spatial indexing database for precise WGS-84 GPS anomaly positioning |
+| Google Cloud Tasks | Asynchronous task queue for high-throughput batch processing |
+| Svelte 5 | Reactive admin dashboard interface with real-time inspection polling |
+| Leaflet.js | High-performance interactive GPS anomaly mapping with spatial filters |
+| PDFKit | Dynamic generation of publication-grade PDF inspection reports |
 
 ---
 
@@ -200,25 +213,25 @@
 **Component:** `src/components/sections/CallToAction.astro`
 
 ### Left column — headline block
-- **Tag pill:** Request your inspection
-- **h2:** Discover how much output **you're leaving on the table**
-- **Subheading:** Most solar farms operate at 15–25% below optimal efficiency due to undetected faults. A thermographic inspection can recover all of that.
+- **Tag pill:** Request Your Inspection
+- **h2:** Recover Lost Yield on **Your Solar Assets**
+- **Subheading:** Undetected thermal anomalies can reduce solar plant efficiency by 15% to 25%. Automated thermographic analytics identify defects early to protect your Performance Ratio (PR).
 
 ### Left column — benefit bullets (4)
 
 | Icon | Title | Description |
 |---|---|---|
-| ⚡ | Diagnosis in 48h | Full report delivered in under two days from the inspection flight. |
-| 🎯 | Tailored analysis | Adapted to your farm's specifics: panel technology, inverter setup, and array configuration. |
-| 📊 | Maintenance plan | Receive a prioritized action plan with estimated ROI for each recommended intervention. |
-| 🔄 | Ongoing follow-up | Periodic monitoring to verify anomaly fixes and prevent new faults from developing. |
+| ⚡ | Rapid 48h Delivery | Full georeferenced anomaly maps and executive PDF reports delivered within two days of flight upload. |
+| 🎯 | Tailored Radiometric Thresholds | Customized temperature deltas (ΔT) calibrated to your site's PV module technology and array geometry. |
+| 📊 | Prioritized Action Plan | Actionable maintenance report categorized by IEC severity levels to optimize field O&M intervention costs. |
+| 🔄 | Historical Benchmark Tracking | Track thermal degradation over time across recurring drone inspections to verify component repairs. |
 
 ### Right column — contact form
 - **Form title (h3):** Request a Demo
-- **Form subtitle:** No commitment · Response within 2 hours
-- **Success message title:** Request received!
-- **Success message sub:** We'll get back to you within 2 hours.
-- **Error message:** Something went wrong. Please try again or email us directly.
+- **Form subtitle:** Fast setup · Response within 2 business hours
+- **Success title:** Request received!
+- **Success subtitle:** We will contact you within 2 business hours.
+- **Error message:** Unable to submit request. Please try again or contact us directly at contact@skymetrics.cloud.
 
 **Form fields:**
 
@@ -228,13 +241,13 @@
 | Company | Company | Your company | No |
 | Work email | Work email | you@company.com | Yes |
 | Installed capacity | Installed capacity (MW) | Select a range | Yes |
-| Message | Message (optional) | Tell us about your solar farm… | No |
+| Message | Message (optional) | Tell us about your solar farm or drone inspection operations… | No |
 
 **Capacity dropdown options:** 1 – 10 MW · 10 – 50 MW · 50 – 200 MW · 200 MW+
 
-**Submit button:** Request a Free Demo (loading state: Sending…)
+**Submit button:** Request Free Demo (loading state: Sending…)
 
-**Legal line:** By submitting you accept our [privacy policy](/privacy)
+**Legal line:** By submitting, you accept our [privacy policy](/privacy).
 
 ---
 
@@ -243,29 +256,33 @@
 **Component:** `src/components/sections/Footer.astro`
 
 ### Brand column
-- **Logo:** SkyMetrics (orange icon — NOTE: currently still uses orange gradient, differs from navbar blue)
-- **Tagline:** AI-powered thermal image processing for photovoltaic solar farms. Automated fault detection, GPS anomaly maps, and instant PDF reports.
+- **Logo:** SkyMetrics (blue icon — `#4A90C4 → #3A7AB0` gradient, matches navbar)
+- **Tagline:** Automated thermal analytics and AI anomaly detection for utility-scale solar PV inspection. Turn raw drone thermography into actionable O&M repair plans.
 - **Social links:** LinkedIn · Twitter · GitHub (all `href="#"` — placeholder)
 
-### Platform links (→ `#features`)
-- AI fault detection
-- GPS anomaly map
-- PDF reports
-- Batch upload
-- Webhook alerts
-- REST API
+### Product links (→ `#features`)
+- Thermographic AI
+- Radiometric Mapping
+- IEC Anomaly Reports
+- CAD & GIS Exports
 
-### Company links (→ `#`)
-- About us
-- API documentation
-- Blog
-- Careers
-- Press
+### Solutions links (→ `#contact`)
+- Utility Solar Operators
+- O&M Service Providers
+- Drone Service Providers
+- Asset Managers
 
-### Contact column
-- **Email:** skymetric.cloud@gmail.com
-- **Location:** Warsaw, Poland · Serving clients across Europe
-- **CTA button:** Request Demo → `#contact`
+### Company links
+- About SkyMetrics → `#`
+- Blog & Insights → `#`
+- Documentation → `#`
+- Contact → `#contact`
+
+### Legal links
+- Privacy Policy → `/privacy`
+- Terms of Service → `/terms`
+- Security & Compliance → `#`
+- Cookie Settings → `/cookies`
 
 ### Bottom bar
 - **Copyright:** © {year} SkyMetrics. All rights reserved.
