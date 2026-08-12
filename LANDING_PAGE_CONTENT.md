@@ -386,6 +386,7 @@ Email: contact@skymetrics.cloud
 | `<title>` | Privacy Policy — SkyMetrics |
 | `<meta name="description">` | Privacy policy for SkyMetrics. Learn how we collect, use, and protect your personal data in compliance with GDPR. |
 | Last updated | August 10, 2026 |
+| Logo | Blue gradient `#4A90C4 → #3A7AB0` |
 
 ### Sections
 
@@ -414,6 +415,7 @@ Email: contact@skymetrics.cloud
 | `<title>` | Terms of Service — SkyMetrics |
 | `<meta name="description">` | Terms of service for SkyMetrics. Read the conditions governing the use of our AI-powered thermal inspection platform. |
 | Last updated | August 10, 2026 |
+| Logo | Blue gradient `#4A90C4 → #3A7AB0` |
 
 ### Sections
 
@@ -444,6 +446,7 @@ Email: contact@skymetrics.cloud
 | `<title>` | Cookie Policy — SkyMetrics |
 | `<meta name="description">` | Cookie policy for SkyMetrics. Learn which cookies we use and how to control them. |
 | Last updated | August 10, 2026 |
+| Logo | Blue gradient `#4A90C4 → #3A7AB0` |
 
 ### Sections
 
