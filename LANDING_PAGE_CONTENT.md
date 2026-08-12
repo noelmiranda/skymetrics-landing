@@ -287,3 +287,102 @@
 ### Bottom bar
 - **Copyright:** © {year} SkyMetrics. All rights reserved.
 - **Legal links:** Privacy policy (`/privacy`) · Terms of service (`/terms`) · Cookies (`/cookies`)
+
+---
+
+## Legal Pages
+
+All three legal pages share the same layout: sticky nav with back-to-home link, `Legal` pill tag, `h1` title, `Last updated: August 10, 2026`, and a white card divided into numbered sections.
+
+### Shared company address block
+
+Appears in Privacy Policy (§1 Data Controller) and Cookie Policy (§7 Contact):
+
+```
+SkyMetrics
+Gdańsk, Poland
+Email: contact@skymetrics.cloud
+```
+
+---
+
+## Privacy Policy
+
+**Page:** `src/pages/privacy.astro` → `/privacy`
+
+| Field | Value |
+|---|---|
+| `<title>` | Privacy Policy — SkyMetrics |
+| `<meta name="description">` | Privacy policy for SkyMetrics. Learn how we collect, use, and protect your personal data in compliance with GDPR. |
+| Last updated | August 10, 2026 |
+
+### Sections
+
+| # | Title | Key content |
+|---|---|---|
+| — | Intro | GDPR commitment, skymetrics.cloud, demo form context |
+| 1 | Data Controller | SkyMetrics · Gdańsk, Poland · contact@skymetrics.cloud |
+| 2 | Data We Collect | First name, company, work email, installed capacity (MW), optional message; server logs via Vercel |
+| 3 | Legal Basis for Processing | Legitimate interest (Art. 6(1)(f) GDPR) |
+| 4 | How We Use Your Data | Respond within 2 hours, inspection proposal, follow-up; no marketing / profiling / automated decisions |
+| 5 | Third-Party Data Processors | Web3Forms (form handler) · Vercel (hosting) |
+| 6 | Data Retention | 12 months; deleted if no contract; contract data retained per law |
+| 7 | Your Rights Under GDPR | Access · Rectification · Erasure · Restriction · Portability · Objection; contact UODO at uodo.gov.pl |
+| 8 | Cookies | No tracking/analytics/advertising cookies; Vercel technical cookies only |
+| 9 | Changes to This Policy | "Last updated" date reflects latest version |
+| 10 | Contact | contact@skymetrics.cloud |
+
+---
+
+## Terms of Service
+
+**Page:** `src/pages/terms.astro` → `/terms`
+
+| Field | Value |
+|---|---|
+| `<title>` | Terms of Service — SkyMetrics |
+| `<meta name="description">` | Terms of service for SkyMetrics. Read the conditions governing the use of our AI-powered thermal inspection platform. |
+| Last updated | August 10, 2026 |
+
+### Sections
+
+| # | Title | Key content |
+|---|---|---|
+| — | Intro | Governs access to skymetrics.cloud and the Platform |
+| 1 | Description of Services | Claude Vision AI, fault classification, GPS maps, PDF reports, batch upload (100 images / ZIP), webhooks (ΔT > 15°C), REST API (OpenAPI 3.0.3) |
+| 2 | Access and Accounts | Granted after demo + service agreement; client responsible for credentials |
+| 3 | Acceptable Use | No reverse-engineering, no redistribution, no malware, PV-only use |
+| 4 | Intellectual Property | Platform IP owned by SkyMetrics; client owns uploaded images; reports licensed for internal use |
+| 5 | Pricing and Payment | Agreed individually in writing; EUR excl. VAT; access suspended if unpaid |
+| 6 | Platform Availability | Best-effort; no liability for third-party (GCP, Vercel, Anthropic) downtime |
+| 7 | Disclaimer of Warranties | "As is"; AI results probabilistic; engineer validation required |
+| 8 | Limitation of Liability | No indirect/consequential damages; aggregate cap = fees paid in prior 3 months |
+| 9 | Termination | 30 days' written notice; immediate suspension for breach/non-payment |
+| 10 | Governing Law and Disputes | Polish law + EU law; courts of **Gdańsk, Poland** |
+| 11 | Changes to These Terms | 14 days' notice to active clients before material changes |
+| 12 | Contact | contact@skymetrics.cloud |
+
+---
+
+## Cookie Policy
+
+**Page:** `src/pages/cookies.astro` → `/cookies`
+
+| Field | Value |
+|---|---|
+| `<title>` | Cookie Policy — SkyMetrics |
+| `<meta name="description">` | Cookie policy for SkyMetrics. Learn which cookies we use and how to control them. |
+| Last updated | August 10, 2026 |
+
+### Sections
+
+| # | Title | Key content |
+|---|---|---|
+| — | Intro | Privacy-first: no tracking, analytics, or advertising cookies |
+| 1 | What Are Cookies | Definition of session vs. persistent cookies |
+| 2 | Cookies We Use | **Strictly necessary** (always active): `__vercel_live_token` (session), `_vercel_jwt` (session) · **Analytics & tracking**: Not used |
+| 3 | Third-Party Cookies | Vercel edge routing only; Web3Forms does not set cookies |
+| 4 | Why We Have No Cookie Banner | Only strictly necessary cookies → no consent required under ePrivacy / GDPR |
+| 5 | How to Control Cookies | Browser settings for Chrome, Firefox, Safari, Edge |
+| 6 | Changes to This Policy | "Last updated" date reflects latest version |
+| 7 | Contact | contact@skymetrics.cloud · SkyMetrics · Gdańsk, Poland |
