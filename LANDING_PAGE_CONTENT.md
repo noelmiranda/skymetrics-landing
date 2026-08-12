@@ -299,7 +299,9 @@
 | `<title>` | About — SkyMetrics |
 | `<meta name="description">` | SkyMetrics is a B2B platform for automated thermographic inspection of utility-scale solar PV farms, built on Anthropic Vision AI, PostGIS, and Google Cloud. |
 
-**Nav:** Same sticky bar as legal pages — blue logo (`#4A90C4 → #3A7AB0`) + "Back to home" link.
+**Logo:** Blue gradient `#4A90C4 → #3A7AB0` — matches main nav, footer, and all legal pages.
+
+**Nav:** Sticky bar — logo + "Back to home" link.
 
 **Tag pill:** Company
 
