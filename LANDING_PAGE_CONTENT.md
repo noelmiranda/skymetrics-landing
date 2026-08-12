@@ -393,7 +393,7 @@ Email: contact@skymetrics.cloud
 | # | Title | Key content |
 |---|---|---|
 | — | Intro | GDPR commitment, skymetrics.cloud, demo form context |
-| 1 | Data Controller | SkyMetrics · Gdańsk, Poland · contact@skymetrics.cloud |
+| 1 | Data Controller | Address block: SkyMetrics · Gdańsk, Poland · contact@skymetrics.cloud |
 | 2 | Data We Collect | First name, company, work email, installed capacity (MW), optional message; server logs via Vercel |
 | 3 | Legal Basis for Processing | Legitimate interest (Art. 6(1)(f) GDPR) |
 | 4 | How We Use Your Data | Respond within 2 hours, inspection proposal, follow-up; no marketing / profiling / automated decisions |
