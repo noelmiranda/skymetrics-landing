@@ -290,6 +290,73 @@
 
 ---
 
+## About Page
+
+**Page:** `src/pages/about.astro` → `/about`
+
+| Field | Value |
+|---|---|
+| `<title>` | About — SkyMetrics |
+| `<meta name="description">` | SkyMetrics is a B2B platform for automated thermographic inspection of utility-scale solar PV farms, built on Anthropic Vision AI, PostGIS, and Google Cloud. |
+
+**Nav:** Same sticky bar as legal pages — blue logo (`#4A90C4 → #3A7AB0`) + "Back to home" link.
+
+**Tag pill:** Company
+
+**h1:** About SkyMetrics
+
+**Subheading:** Automated thermal analytics and AI anomaly detection for utility-scale solar PV inspection.
+
+### Sections
+
+**Our Mission**
+> Undetected thermal anomalies silently erode solar farm performance — reducing energy yield by up to 25% before a single technician sets foot on site. SkyMetrics was built to change that. We give solar asset owners and O&M teams the tools to turn raw drone thermography into precise, IEC-compliant inspection reports in minutes, not days.
+
+**What We Do** (6 bullets)
+- AI-powered fault classification — broken diodes, dead cells, soiling, and string disconnections.
+- Calibrated ΔT severity scoring aligned to IEC 62446-3 crystalline silicon thresholds.
+- Sub-meter GPS anomaly maps with PostGIS spatial indexing and interactive Leaflet visualisation.
+- Publication-grade PDF inspection reports with module-level temperature deltas and field coordinates.
+- Real-time webhook alerts when critical hotspots (ΔT > 15°C) are detected.
+- Full REST API with OpenAPI 3.0.3 documentation for integration with CMMS and asset management platforms.
+
+**Technology** (2-column card grid)
+
+| Name | Description |
+|---|---|
+| Anthropic Vision AI | Radiometric fault extraction and anomaly classification |
+| PostGIS + Leaflet.js | WGS-84 GPS indexing and interactive anomaly mapping |
+| Google Cloud Storage & Tasks | Signed URL ingestion and async batch processing |
+| Node.js 24 + Fastify 5 | High-throughput REST API with OpenAPI 3.0.3 |
+| PostgreSQL 16 + PostGIS 3.4 | Spatial database with GiST indexed anomaly records |
+| PDFKit | Dynamic generation of publication-grade inspection reports |
+
+**Who We Serve** (4 bullets)
+
+| Segment | Description |
+|---|---|
+| Utility Solar Operators | Monitor and protect the Performance Ratio of large-scale PV plants. |
+| O&M Service Providers | Deliver IEC-compliant inspection reports to your clients faster and at lower cost. |
+| Drone Service Providers | Automate post-flight analysis and transform raw thermal footage into structured deliverables. |
+| Asset Managers | Benchmark thermal degradation across your portfolio and prioritise capital expenditure. |
+
+**Company**
+> SkyMetrics is headquartered in Gdańsk, Poland, operating as a GDPR-compliant B2B SaaS platform under Polish and EU law.
+
+Address block:
+```
+SkyMetrics
+Gdańsk, Poland
+Email: contact@skymetrics.cloud
+```
+
+**Get in Touch**
+> Ready to automate your thermographic inspections? Request a demo and we will respond within 2 business hours.
+
+CTA button: Request a Demo → `/#contact`
+
+---
+
 ## Legal Pages
 
 All three legal pages share the same layout: sticky nav with back-to-home link, `Legal` pill tag, `h1` title, `Last updated: August 10, 2026`, and a white card divided into numbered sections.
