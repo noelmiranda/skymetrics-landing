@@ -4,12 +4,12 @@ const year = new Date().getFullYear();
 <footer class="bg-slate py-16">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+    <div class="grid grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10 mb-12">
 
       <!-- Brand column -->
       <div class="col-span-2 lg:col-span-1">
         <a href="/" class="flex items-center gap-2.5 mb-5">
-          <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #E09E50 0%, #c9813a 100%);">
+          <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #4A90C4 0%, #3a7ab0 100%);">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
               <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -17,7 +17,7 @@ const year = new Date().getFullYear();
           <span class="font-heading font-bold text-white text-xl tracking-tight">SkyMetrics</span>
         </a>
         <p class="font-body text-white/45 text-sm leading-relaxed mb-6 max-w-xs">
-          AI-powered thermal image processing for photovoltaic solar farms. Automated fault detection, GPS anomaly maps, and instant PDF reports.
+          Automated thermal analytics and AI anomaly detection for utility-scale solar PV inspection. Turn raw drone thermography into actionable O&amp;M repair plans.
         </p>
         <div class="flex items-center gap-3">
           {[
@@ -34,13 +34,25 @@ const year = new Date().getFullYear();
         </div>
       </div>
 
-      <!-- Platform links -->
+      <!-- Product links -->
       <div>
-        <h4 class="font-heading font-semibold text-white text-sm mb-5">Platform</h4>
+        <h4 class="font-heading font-semibold text-white text-sm mb-5">Product</h4>
         <ul class="space-y-3">
-          {['AI fault detection', 'GPS anomaly map', 'PDF reports', 'Batch upload', 'Webhook alerts', 'REST API'].map(item => (
+          {['Thermographic AI', 'Radiometric Mapping', 'IEC Anomaly Reports', 'CAD & GIS Exports'].map(item => (
             <li>
               <a href="#features" class="font-body text-white/45 text-sm hover:text-white/80 transition-colors">{item}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Solutions links -->
+      <div>
+        <h4 class="font-heading font-semibold text-white text-sm mb-5">Solutions</h4>
+        <ul class="space-y-3">
+          {['Utility Solar Operators', 'O&M Service Providers', 'Drone Service Providers', 'Asset Managers'].map(item => (
+            <li>
+              <a href="#contact" class="font-body text-white/45 text-sm hover:text-white/80 transition-colors">{item}</a>
             </li>
           ))}
         </ul>
@@ -50,32 +62,33 @@ const year = new Date().getFullYear();
       <div>
         <h4 class="font-heading font-semibold text-white text-sm mb-5">Company</h4>
         <ul class="space-y-3">
-          {['About us', 'API documentation', 'Blog', 'Careers', 'Press'].map(item => (
+          {[
+            { label: 'About SkyMetrics', href: '#' },
+            { label: 'Blog & Insights', href: '#' },
+            { label: 'Documentation', href: '#' },
+            { label: 'Contact', href: '#contact' },
+          ].map(item => (
             <li>
-              <a href="#" class="font-body text-white/45 text-sm hover:text-white/80 transition-colors">{item}</a>
+              <a href={item.href} class="font-body text-white/45 text-sm hover:text-white/80 transition-colors">{item.label}</a>
             </li>
           ))}
         </ul>
       </div>
 
-      <!-- Contact column -->
+      <!-- Legal links -->
       <div>
-        <h4 class="font-heading font-semibold text-white text-sm mb-5">Contact</h4>
+        <h4 class="font-heading font-semibold text-white text-sm mb-5">Legal</h4>
         <ul class="space-y-3">
-          <li class="flex items-start gap-2.5">
-            <svg class="w-4 h-4 mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22 6 12 13 2 6"/></svg>
-            <a href="mailto:skymetric.cloud@gmail.com" class="font-body text-white/45 text-sm hover:text-white/80 transition-colors">skymetric.cloud@gmail.com</a>
-          </li>
-          <li class="flex items-start gap-2.5">
-            <svg class="w-4 h-4 mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="10" r="3"/></svg>
-            <span class="font-body text-white/45 text-sm">Warsaw, Poland<br/>Serving clients across Europe</span>
-          </li>
-          <li class="mt-6">
-            <a href="#contact" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-body font-semibold text-sm text-slate transition-all hover:shadow-lg active:scale-95" style="background: #E09E50;">
-              Request Demo
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </li>
+          {[
+            { label: 'Privacy Policy', href: '/privacy' },
+            { label: 'Terms of Service', href: '/terms' },
+            { label: 'Security & Compliance', href: '#' },
+            { label: 'Cookie Settings', href: '/cookies' },
+          ].map(item => (
+            <li>
+              <a href={item.href} class="font-body text-white/45 text-sm hover:text-white/80 transition-colors">{item.label}</a>
+            </li>
+          ))}
         </ul>
       </div>
     </div>

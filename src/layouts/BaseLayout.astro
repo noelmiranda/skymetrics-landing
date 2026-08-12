@@ -4,12 +4,16 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  ogTitle?: string;
+  ogDescription?: string;
   ogImage?: string;
 }
 
 const {
-  title = 'SkyMetrics — AI-Powered Drone Thermographic Inspection for Solar Farms',
-  description = 'Detect panel defects in hours, not weeks. SkyMetrics combines drone thermography and AI to deliver actionable inspection reports for utility-scale solar farms.',
+  title = 'SkyMetrics | Automated Thermal Drone Analytics for Solar Farms',
+  description = 'SkyMetrics transforms thermographic drone inspections into georeferenced anomaly maps and IEC-compliant O&M reports. Recover lost yield with AI-driven thermal defect detection.',
+  ogTitle = 'SkyMetrics | AI-Powered Thermal Analytics for Solar PV',
+  ogDescription = 'Upload raw radiometric drone imagery and receive detailed IEC-compliant anomaly reports within hours. Protect your Performance Ratio.',
   ogImage = '/og-image.jpg',
 } = Astro.props;
 
@@ -31,15 +35,30 @@ const canonicalURL = new URL(Astro.url.pathname, site);
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
     <meta property="og:image" content={new URL(ogImage, site)} />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={ogDescription} />
     <meta name="twitter:image" content={new URL(ogImage, site)} />
+
+    <!-- JSON-LD -->
+    <script is:inline type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "SkyMetrics",
+      "applicationCategory": "BusinessApplication",
+      "url": "https://skymetrics.cloud",
+      "description": "Automated thermal analytics and AI anomaly detection for utility-scale solar PV inspection. Turn raw drone thermography into actionable O&M repair plans.",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "category": "SaaS"
+      }
+    })} />
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">

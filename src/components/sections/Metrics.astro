@@ -2,41 +2,41 @@
 const pillars = [
   {
     value: '423',
-    label: 'Automated tests',
-    desc: '398 backend (Jest) + 25 frontend (Vitest) — 0 failures, 0 TypeScript errors across the entire codebase',
+    label: 'Automated Quality Checks',
+    desc: '398 backend (Jest) + 25 frontend (Vitest) test suites passing with 0 TypeScript errors for maximum platform stability',
     icon: 'tests',
     color: '#8CBDB9',
   },
   {
     value: '4',
-    label: 'Fault types detected',
-    desc: 'Broken diodes, dead cells, dirt accumulation, and disconnections — classified automatically by Claude Vision AI',
+    label: 'Core PV Anomaly Classes',
+    desc: 'Bypass diode failures, dead cells, soiling accumulation, and string disconnections classified with automated severity scoring',
     icon: 'faults',
     color: '#E09E50',
   },
   {
     value: '100',
-    label: 'Images per batch',
-    desc: 'Upload up to 100 thermal images or a single ZIP archive per inspection run, with per-file failure isolation',
+    label: 'Radiometric Images / Batch',
+    desc: 'Stream up to 100 raw radiometric thermal files or a single ZIP archive per run with isolated error handling',
     icon: 'batch',
     color: '#8CBDB9',
   },
   {
-    value: 'ΔT 15°C',
-    label: 'Critical alert threshold',
-    desc: 'Industry-standard temperature delta for crystalline silicon PV — any anomaly above this triggers an instant webhook alert',
+    value: 'ΔT > 15°C',
+    label: 'Critical Alert Threshold',
+    desc: 'IEC 62446-3 temperature delta standard for crystalline silicon PV — severe hotspots fire instant webhook payloads',
     icon: 'temp',
     color: '#E09E50',
   },
 ];
 
 const stack = [
-  { name: 'Claude Vision', desc: 'Anthropic AI model for thermal image analysis', color: '#E09E50' },
-  { name: 'PostGIS', desc: 'Geospatial indexing for GPS anomaly coordinates', color: '#8CBDB9' },
-  { name: 'Google Cloud Tasks', desc: 'Async batch processing queue', color: '#2D3E4E' },
-  { name: 'Svelte 5', desc: 'Admin dashboard with real-time polling', color: '#8CBDB9' },
-  { name: 'Leaflet.js', desc: 'Interactive inspection location maps', color: '#E09E50' },
-  { name: 'PDFKit', desc: 'Automatic inspection report generation', color: '#2D3E4E' },
+  { name: 'Claude Vision', desc: 'Anthropic AI model for thermal image analysis and radiometric anomaly detection', color: '#E09E50' },
+  { name: 'PostGIS', desc: 'Spatial indexing database for precise WGS-84 GPS anomaly positioning', color: '#8CBDB9' },
+  { name: 'Google Cloud Tasks', desc: 'Asynchronous task queue for high-throughput batch processing', color: '#2D3E4E' },
+  { name: 'Svelte 5', desc: 'Reactive admin dashboard interface with real-time inspection polling', color: '#8CBDB9' },
+  { name: 'Leaflet.js', desc: 'High-performance interactive GPS anomaly mapping with spatial filters', color: '#E09E50' },
+  { name: 'PDFKit', desc: 'Dynamic generation of publication-grade PDF inspection reports', color: '#2D3E4E' },
 ];
 ---
 
@@ -45,14 +45,14 @@ const stack = [
 
     <div class="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
       <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-body font-semibold tracking-wide uppercase mb-4 border" style="background: rgba(140,189,185,0.12); color: #2D3E4E; border-color: rgba(140,189,185,0.3);">
-        Platform by the numbers
+        Platform Credentials
       </div>
       <h2 class="font-heading font-bold text-slate text-4xl lg:text-5xl leading-tight mb-5">
-        Production-ready.<br/>
-        <span style="color: #8CBDB9;">No guesswork.</span>
+        Enterprise Credentials.<br/>
+        <span style="color: #8CBDB9;">Battle-Tested Reliability.</span>
       </h2>
       <p class="font-body text-slate/60 text-lg leading-relaxed">
-        SkyMetrics Core v1.5.0 ships with a complete test suite, a documented API, and real infrastructure — not a prototype.
+        SkyMetrics Core v1.5.0 is built on enterprise-grade infrastructure — validated with automated test suites, fully documented APIs, and real cloud services ready for scale.
       </p>
     </div>
 
@@ -98,7 +98,7 @@ const stack = [
     <div class="bg-white rounded-2xl border border-slate/8 overflow-hidden">
       <div class="px-6 py-5 border-b border-slate/8">
         <h3 class="font-heading font-bold text-slate text-lg">Technology Stack</h3>
-        <p class="font-body text-slate/55 text-sm mt-1">Every component is production-grade and battle-tested</p>
+        <p class="font-body text-slate/55 text-sm mt-1">Built with proven, high-performance infrastructure</p>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-slate/8">
         {stack.map((s, i) => (

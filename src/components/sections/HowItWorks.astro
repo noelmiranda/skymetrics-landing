@@ -2,14 +2,14 @@
 const steps = [
   {
     number: '01',
-    title: 'Upload Thermal Images',
-    subtitle: 'Batch upload — up to 100 images or a ZIP',
-    description: 'Drone operators upload thermal images through the Svelte 5 admin dashboard. Select individual JPG/PNG files or drop a single ZIP exported from FLIR software. Files upload directly to Google Cloud Storage via signed URLs — the server stays memory-neutral regardless of batch size.',
+    title: '1. Direct Cloud Storage Ingestion',
+    subtitle: 'Batch upload up to 100 radiometric images or ZIP',
+    description: 'Upload radiometric drone imagery directly from your flight operations. Drop individual radiometric JPG/TIFF files or single ZIP archives exported from FLIR or DJI Thermal software. Files stream securely to Google Cloud Storage via signed URLs, keeping backend memory completely neutral.',
     details: [
-      'Drag-and-drop or file browser upload',
-      'Up to 100 images or 1 ZIP per batch',
-      'Direct-to-GCS signed URL upload',
-      'Per-file failure isolation — one bad image never aborts the batch',
+      'Drag-and-drop or batch file picker',
+      'Up to 100 radiometric images or 1 ZIP archive per run',
+      'Direct-to-GCS signed URL streaming',
+      'Isolated per-file error handling',
     ],
     color: '#8CBDB9',
     bgColor: 'rgba(140,189,185,0.08)',
@@ -17,14 +17,14 @@ const steps = [
   },
   {
     number: '02',
-    title: 'Claude AI Classifies Faults',
-    subtitle: 'Async processing via Google Cloud Tasks',
-    description: 'The API returns 202 Accepted immediately. Google Cloud Tasks dispatches the batch asynchronously. Claude Vision (claude-sonnet-4-6) analyzes each thermal image and returns a structured JSON result: fault type, severity, cell temperature, ambient temperature, and description.',
+    title: '2. Vision AI Radiometric Extraction',
+    subtitle: 'Asynchronous processing via Google Cloud Tasks',
+    description: 'The API acknowledges uploads with an instant 202 Accepted. Google Cloud Tasks dispatches the batch asynchronously, calling Anthropic Vision AI to extract pixel-level temperature data, calculate deltas (ΔT), and classify structural anomalies into structured JSON payloads.',
     details: [
-      'Claude Vision (Anthropic) per image',
-      'Detects: broken_diode, dead_cell, dirt, disconnection',
-      'Severity: low / medium / critical',
-      'ΔT > 15°C auto-flagged as critical (industry standard)',
+      'Anthropic Vision AI model execution',
+      'Detects: broken_diode, dead_cell, soiling, disconnection',
+      'Calibrated severity: Low / Medium / Critical',
+      'ΔT > 15°C auto-flagged (IEC 62446-3 standard)',
     ],
     color: '#E09E50',
     bgColor: 'rgba(224,158,80,0.08)',
@@ -32,14 +32,14 @@ const steps = [
   },
   {
     number: '03',
-    title: 'Map, Report & Alerts',
-    subtitle: 'GPS map + PDF report + webhook alerts',
-    description: 'Results are persisted in PostGIS (WGS-84 coordinates) and surfaced in the admin dashboard as an interactive Leaflet.js map with panel-level markers. A PDF report is generated automatically. Critical faults (ΔT > 15°C) trigger instant webhook notifications.',
+    title: '3. GIS Mapping, PDF Reports & Webhooks',
+    subtitle: 'Sub-meter map + executive PDF + webhooks',
+    description: 'Extracted data is indexed in PostGIS and rendered on an interactive Leaflet map with module-level GPS pins. An executive PDF report is compiled instantly, while severe thermal hot spots fire automated webhook notifications.',
     details: [
-      'Leaflet.js interactive GPS anomaly map',
-      'Bounding-box spatial queries (PostGIS GiST index)',
-      'PDF report downloadable from the dashboard',
-      'Webhook alert for critical-severity faults',
+      'Interactive Leaflet GPS map with spatial filters',
+      'PostGIS GiST spatial indexing (WGS-84)',
+      'Executive PDF report generated automatically',
+      'Real-time webhook dispatch for critical anomalies',
     ],
     color: '#2D3E4E',
     bgColor: 'rgba(45,62,78,0.05)',
@@ -53,14 +53,14 @@ const steps = [
 
     <div class="text-center max-w-3xl mx-auto mb-16 lg:mb-24">
       <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-body font-semibold tracking-wide uppercase mb-4 border" style="background: rgba(224,158,80,0.08); color: #2D3E4E; border-color: rgba(224,158,80,0.2);">
-        How It Works
+        Automated Workflow
       </div>
       <h2 class="font-heading font-bold text-slate text-4xl lg:text-5xl leading-tight mb-5">
-        Upload. Analyze. Report.<br/>
-        <span style="color: #E09E50;">Fully automated.</span>
+        Direct Ingestion. AI Analytics.<br/>
+        <span style="color: #E09E50;">Instant Reports.</span>
       </h2>
       <p class="font-body text-slate/60 text-lg leading-relaxed">
-        From thermal image upload to GPS-mapped anomaly report — no manual review, no waiting, no guesswork.
+        Stream raw radiometric drone imagery into actionable intelligence — from cloud upload to sub-meter GPS mapping and executive PDF reporting in minutes.
       </p>
     </div>
 
@@ -136,11 +136,11 @@ const steps = [
         </svg>
       </div>
       <div class="flex-1">
-        <h4 class="font-heading font-bold text-slate text-lg mb-1">Built on proven infrastructure</h4>
-        <p class="font-body text-slate/60 text-sm">Node.js 24 · TypeScript 6 · Fastify 5 · PostgreSQL 16 + PostGIS 3.4 · Google Cloud Storage &amp; Tasks · Svelte 5 · Leaflet.js · PDFKit · Anthropic Claude Vision</p>
+        <h4 class="font-heading font-bold text-slate text-lg mb-1">Built on Modern, Battle-Tested Infrastructure</h4>
+        <p class="font-body text-slate/60 text-sm">Node.js 24 · TypeScript 6 · Fastify 5 · PostgreSQL 16 + PostGIS 3.4 · Google Cloud Storage &amp; Tasks · Svelte 5 · Leaflet.js · PDFKit · Anthropic Vision AI</p>
       </div>
       <a href="#contact" class="shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-solar text-white font-body font-semibold text-sm rounded-xl hover:bg-solar/90 transition-all shadow-sm hover:shadow-md active:scale-95 whitespace-nowrap">
-        Request access
+        Request Access
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </div>

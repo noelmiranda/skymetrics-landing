@@ -2,12 +2,12 @@
 const features = [
   {
     icon: 'ai',
-    tag: 'Claude Vision AI',
-    title: 'Automated Fault Detection',
-    description: 'Every thermal image is analyzed by Claude Vision (Anthropic). The model classifies four fault types — broken diodes, dead cells, dirt, and disconnections — with severity levels from low to critical. No manual review needed.',
+    tag: 'Vision AI Engine',
+    title: 'Radiometric Fault & Delta Detection',
+    description: 'Analyzes raw thermal frames to extract pixel-level temperature readings and classify core anomalies — broken diodes, dead cells, soiling, and string disconnections — complete with calibrated ΔT severity scoring.',
     stats: [
-      { value: '4', label: 'Fault types' },
-      { value: '3', label: 'Severity levels' },
+      { value: '4', label: 'Fault Classes' },
+      { value: 'ΔT', label: 'Exact Metrics' },
     ],
     accent: '#E09E50',
     bg: 'rgba(224,158,80,0.06)',
@@ -16,11 +16,11 @@ const features = [
   {
     icon: 'map',
     tag: 'PostGIS + Leaflet',
-    title: 'GPS-Georeferenced Anomaly Map',
-    description: 'Each detected fault is persisted with exact GPS coordinates in a PostGIS-enabled PostgreSQL database. The interactive Leaflet.js map lets field technicians locate any anomaly instantly using bounding-box spatial queries.',
+    title: 'Sub-Meter GPS Anomaly Mapping',
+    description: 'Every anomaly is persisted with precise WGS-84 GPS coordinates in a PostGIS spatial database. Interactive Leaflet maps allow field O&M technicians to navigate directly to damaged modules via spatial bounding queries.',
     stats: [
-      { value: 'WGS-84', label: 'Coordinate system' },
-      { value: 'GiST', label: 'Spatial index' },
+      { value: 'WGS-84', label: 'Coordinate System' },
+      { value: 'GiST', label: 'Spatial Index' },
     ],
     accent: '#8CBDB9',
     bg: 'rgba(140,189,185,0.06)',
@@ -28,12 +28,12 @@ const features = [
   },
   {
     icon: 'report',
-    tag: 'PDF Reports',
-    title: 'Instant Inspection Reports',
-    description: 'Every completed inspection generates a downloadable PDF report via PDFKit — anomaly summary, panel-level detail, temperature deltas, severity classifications, and GPS coordinates for every fault found.',
+    tag: 'PDFKit Engine',
+    title: 'Executive Inspection Reports',
+    description: 'Generates publication-grade PDF reports instantly — featuring site anomaly summaries, module-level thermal metrics, temperature deltas (ΔT), severity rankings, and exact GPS coordinates for field intervention.',
     stats: [
-      { value: 'PDF', label: 'Instant download' },
-      { value: 'ΔT 15°C', label: 'Critical threshold' },
+      { value: 'PDF', label: 'Instant Export' },
+      { value: 'ΔT 15°C', label: 'Threshold' },
     ],
     accent: '#2D3E4E',
     bg: 'rgba(45,62,78,0.04)',
@@ -41,12 +41,12 @@ const features = [
   },
   {
     icon: 'batch',
-    tag: 'Batch Upload',
-    title: 'Upload 100 Images or a ZIP',
-    description: 'Drone operators upload up to 100 thermal images at once — or drop a single ZIP from their FLIR software. Files go directly to Google Cloud Storage via signed URLs. One failed image never aborts the rest of the batch.',
+    tag: 'GCS Signed URLs',
+    title: 'High-Throughput Batch Ingestion',
+    description: 'Stream up to 100 thermal frames simultaneously or upload single ZIP archives directly from DJI/FLIR software via Google Cloud Storage signed URLs. Per-file failure isolation ensures seamless batch processing.',
     stats: [
-      { value: '100', label: 'Images per batch' },
-      { value: 'ZIP', label: 'Archive support' },
+      { value: '100', label: 'Frames/Batch' },
+      { value: 'ZIP', label: 'Native Archive' },
     ],
     accent: '#8CBDB9',
     bg: 'rgba(140,189,185,0.06)',
@@ -54,12 +54,12 @@ const features = [
   },
   {
     icon: 'alert',
-    tag: 'Real-Time Alerts',
-    title: 'Critical Fault Notifications',
-    description: 'When an anomaly is classified as critical or exceeds the 15°C temperature delta threshold (industry standard for crystalline silicon PV), the alert system fires immediately — console log plus webhook POST to any configured endpoint.',
+    tag: 'Real-Time Webhooks',
+    title: 'Automated Critical Hotspot Alerts',
+    description: 'When an anomaly breaches the industry-standard 15°C temperature delta threshold for crystalline silicon PV, the platform immediately triggers automated webhooks to alert your asset management system.',
     stats: [
-      { value: 'Webhook', label: 'Alert delivery' },
-      { value: 'Instant', label: 'On detection' },
+      { value: 'Webhook', label: 'Instant Dispatch' },
+      { value: 'IEC', label: '62446-3 Aligned' },
     ],
     accent: '#E09E50',
     bg: 'rgba(224,158,80,0.06)',
@@ -67,12 +67,12 @@ const features = [
   },
   {
     icon: 'api',
-    tag: 'REST API',
-    title: 'Fully Documented API',
-    description: 'Complete REST API with OpenAPI 3.0.3 documentation (Swagger UI at /docs). Integrate SkyMetrics into your existing SCADA, CMMS, or monitoring platform. Async batch analysis returns 202 Accepted immediately.',
+    tag: 'OpenAPI 3.0.3',
+    title: 'Enterprise REST API & System Integration',
+    description: 'Complete REST API with OpenAPI 3.0.3 specifications and interactive Swagger documentation. Seamlessly export structured anomaly payloads directly into your existing CMMS, asset management, or O&M platforms.',
     stats: [
-      { value: 'OpenAPI', label: '3.0.3 spec' },
-      { value: '202', label: 'Async response' },
+      { value: 'OpenAPI', label: '3.0.3 Spec' },
+      { value: '202', label: 'Async Ingestion' },
     ],
     accent: '#2D3E4E',
     bg: 'rgba(45,62,78,0.04)',
@@ -89,11 +89,11 @@ const features = [
         Platform Features
       </div>
       <h2 class="font-heading font-bold text-slate text-4xl lg:text-5xl leading-tight mb-5">
-        Everything built.<br/>
-        <span style="color: #8CBDB9;">Everything working.</span>
+        Enterprise Architecture.<br/>
+        <span style="color: #8CBDB9;">Production-Ready.</span>
       </h2>
       <p class="font-body text-slate/60 text-lg leading-relaxed">
-        SkyMetrics Core is a production-ready B2B platform — 423 automated tests, 0 TypeScript errors — combining Claude Vision AI, PostGIS geospatial indexing, and Google Cloud infrastructure.
+        SkyMetrics Core is built for enterprise utility-scale solar — backed by rigorous automated testing, zero TypeScript errors, and an end-to-end cloud pipeline combining Vision AI, PostGIS spatial indexing, and Google Cloud infrastructure.
       </p>
     </div>
 

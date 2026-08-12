@@ -37,12 +37,11 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY ?? '';
               Request your inspection
             </div>
             <h2 class="font-heading font-bold text-white text-4xl lg:text-5xl leading-tight mb-5">
-              Discover how much output<br/>
-              <span style="color: #E09E50;">you're leaving on the table</span>
+              Recover Lost Yield on<br/>
+              <span style="color: #E09E50;">Your Solar Assets</span>
             </h2>
             <p class="font-body text-white/60 text-lg leading-relaxed max-w-2xl mx-auto">
-              Most solar farms operate at 15–25% below optimal efficiency due to undetected faults.
-              A thermographic inspection can recover all of that.
+              Undetected thermal anomalies can reduce solar plant efficiency by 15% to 25%. Automated thermographic analytics identify defects early to protect your Performance Ratio (PR).
             </p>
           </div>
 
@@ -51,10 +50,10 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY ?? '';
             <!-- Benefits list -->
             <div class="space-y-4">
               {[
-                { icon: '⚡', title: 'Diagnosis in 48h', desc: 'Full report delivered in under two days from the inspection flight.' },
-                { icon: '🎯', title: 'Tailored analysis', desc: 'Adapted to your farm\'s specifics: panel technology, inverter setup, and array configuration.' },
-                { icon: '📊', title: 'Maintenance plan', desc: 'Receive a prioritized action plan with estimated ROI for each recommended intervention.' },
-                { icon: '🔄', title: 'Ongoing follow-up', desc: 'Periodic monitoring to verify anomaly fixes and prevent new faults from developing.' },
+                { icon: '⚡', title: 'Rapid 48h Delivery', desc: 'Full georeferenced anomaly maps and executive PDF reports delivered within two days of flight upload.' },
+                { icon: '🎯', title: 'Tailored Radiometric Thresholds', desc: 'Customized temperature deltas (ΔT) calibrated to your site\'s PV module technology and array geometry.' },
+                { icon: '📊', title: 'Prioritized Action Plan', desc: 'Actionable maintenance report categorized by IEC severity levels to optimize field O&M intervention costs.' },
+                { icon: '🔄', title: 'Historical Benchmark Tracking', desc: 'Track thermal degradation over time across recurring drone inspections to verify component repairs.' },
               ].map(item => (
                 <div class="flex items-start gap-4 p-4 rounded-xl border border-white/10" style="background: rgba(255,255,255,0.06);">
                   <span class="text-2xl shrink-0">{item.icon}</span>
@@ -69,7 +68,7 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY ?? '';
             <!-- Contact form -->
             <div class="bg-white rounded-2xl p-7 shadow-2xl">
               <h3 class="font-heading font-bold text-slate text-xl mb-1">Request a Demo</h3>
-              <p class="font-body text-slate/55 text-sm mb-6">No commitment · Response within 2 hours</p>
+              <p class="font-body text-slate/55 text-sm mb-6">Fast setup · Response within 2 business hours</p>
 
               <!-- Success state -->
               <div id="form-success" class="hidden flex-col items-center justify-center gap-4 py-10 text-center">
@@ -81,7 +80,7 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY ?? '';
                 </div>
                 <div>
                   <p class="font-heading font-bold text-slate text-lg mb-1">Request received!</p>
-                  <p class="font-body text-slate/55 text-sm">We'll get back to you within 2 hours.</p>
+                  <p class="font-body text-slate/55 text-sm">We will contact you within 2 business hours.</p>
                 </div>
               </div>
 
@@ -175,7 +174,7 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY ?? '';
                     id="message"
                     name="message"
                     rows="3"
-                    placeholder="Tell us about your solar farm…"
+                    placeholder="Tell us about your solar farm or drone inspection operations…"
                     aria-describedby="error-message"
                     aria-invalid="false"
                     class="w-full px-3.5 py-2.5 rounded-xl border border-slate/15 font-body text-sm text-slate placeholder-slate/30 focus:outline-none focus:border-mint transition-all resize-none"
@@ -186,12 +185,12 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY ?? '';
                 <!-- Network error banner -->
                 <div id="form-error" class="hidden items-center gap-2.5 px-4 py-3 rounded-xl border border-red-200 bg-red-50">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" class="shrink-0"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-                  <p class="font-body text-xs text-red-600">Something went wrong. Please try again or email us directly.</p>
+                  <p class="font-body text-xs text-red-600">Unable to submit request. Please try again or contact us directly at contact@skymetrics.cloud.</p>
                 </div>
 
                 <button id="submit-btn" type="submit" class="w-full py-3.5 bg-solar text-white font-body font-bold text-base rounded-xl hover:bg-solar/90 transition-all shadow-lg hover:shadow-xl active:scale-95 flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed disabled:active:scale-100">
                   <span id="btn-label" class="flex items-center gap-2">
-                    Request a Free Demo
+                    Request Free Demo
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
                   </span>
                   <span id="btn-loading" class="hidden items-center gap-2">
@@ -199,7 +198,7 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY ?? '';
                     Sending…
                   </span>
                 </button>
-                <p class="text-center font-body text-xs text-slate/40">By submitting you accept our <a href="/privacy" class="underline hover:text-slate/70 transition-colors">privacy policy</a></p>
+                <p class="text-center font-body text-xs text-slate/40">By submitting, you accept our <a href="/privacy" class="underline hover:text-slate/70 transition-colors">privacy policy</a>.</p>
               </form>
             </div>
           </div>
