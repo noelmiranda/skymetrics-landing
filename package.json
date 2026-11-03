@@ -14,14 +14,22 @@
     "test:run": "vitest run"
   },
   "dependencies": {
+    "@astrojs/svelte": "^9.1.2",
+    "@astrojs/vercel": "^11.0.18",
     "@fontsource/inter": "^5.3.0",
     "@fontsource/plus-jakarta-sans": "^5.3.0",
     "@tailwindcss/vite": "^4.3.3",
     "astro": "^7.1.6",
+    "firebase": "^13.2.0",
+    "leaflet": "^1.9.4",
+    "svelte": "^5.57.3",
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.12",
+    "@types/leaflet": "^1.9.22",
     "node-html-parser": "^9.0.1",
+    "typescript": "^6.0.3",
     "vitest": "^4.1.10"
   }
 }

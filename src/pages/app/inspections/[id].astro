@@ -1,0 +1,11 @@
+---
+export const prerender = false;
+import AppLayout from '../../../components/layout/AppLayout.astro';
+import InspectionDetail from '../../../components/app/InspectionDetail.svelte';
+
+const { id } = Astro.params;
+---
+
+<AppLayout title="Inspection">
+  <InspectionDetail inspectionId={id!} client:load />
+</AppLayout>

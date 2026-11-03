@@ -1,0 +1,19 @@
+---
+export const prerender = false;
+import AppLayout from '../../components/layout/AppLayout.astro';
+import InspectionList from '../../components/app/InspectionList.svelte';
+---
+
+<AppLayout title="Dashboard">
+  <div class="flex items-center justify-between mb-6">
+    <p class="text-slate/60 text-sm">Recent inspections across your solar assets.</p>
+    <a
+      href="/app/inspections/new"
+      class="bg-solar text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-solar/90 transition-colors"
+    >
+      + New inspection
+    </a>
+  </div>
+
+  <InspectionList client:load />
+</AppLayout>
