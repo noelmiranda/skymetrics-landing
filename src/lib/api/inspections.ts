@@ -35,3 +35,13 @@ export function createInspection(data: {
     body: JSON.stringify(data),
   });
 }
+
+export function createPanel(
+  inspectionId: string,
+  data: { identifierCode: string; latitude?: number; longitude?: number },
+): Promise<SolarPanel> {
+  return apiFetch<SolarPanel>(`/v1/inspections/${inspectionId}/panels`, {
+    method: 'POST',
+    body: JSON.stringify(data),
+  });
+}

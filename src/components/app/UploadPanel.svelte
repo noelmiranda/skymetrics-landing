@@ -27,8 +27,7 @@
     errorMessage = null;
 
     try {
-      status = 'analyzing';
-      await uploadAndAnalyze(inspectionId, panelId, file);
+      await uploadAndAnalyze(inspectionId, panelId, file, (phase) => { status = phase; });
       status = 'done';
       onComplete?.();
     } catch (err) {

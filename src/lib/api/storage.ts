@@ -17,9 +17,12 @@ export async function uploadAndAnalyze(
   inspectionId: string,
   panelId: string,
   file: File,
+  onProgress?: (phase: 'uploading' | 'analyzing') => void,
 ): Promise<{ status: string; inspectionId: string; panelId: string }> {
+  onProgress?.('uploading');
   const credential = await getUploadCredential(inspectionId, panelId, file.type);
   await uploadToGcs(credential.uploadUrl, file);
+  onProgress?.('analyzing');
   return apiFetch(`/v1/inspections/${inspectionId}/panels/${panelId}/analyze-stored`, {
     method: 'POST',
     body: JSON.stringify({ storageKey: credential.storageKey }),

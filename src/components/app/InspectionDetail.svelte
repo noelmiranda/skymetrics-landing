@@ -1,7 +1,7 @@
 <script lang="ts">
   import { getAuth, onAuthStateChanged } from 'firebase/auth';
   import { firebaseApp } from '../../lib/auth/firebase.js';
-  import { getInspection } from '../../lib/api/inspections.js';
+  import { getInspection, createPanel } from '../../lib/api/inspections.js';
   import type { InspectionResult } from '../../lib/api/types.js';
   import AnomalyMap from './AnomalyMap.svelte';
   import UploadPanel from './UploadPanel.svelte';
@@ -14,6 +14,12 @@
   let error = $state<string | null>(null);
   let activeTab = $state<'map' | 'anomalies' | 'upload'>('map');
 
+  let newPanelCode = $state('PANEL-01');
+  let newPanelLat = $state('');
+  let newPanelLon = $state('');
+  let registeringPanel = $state(false);
+  let registerError = $state<string | null>(null);
+
   async function load() {
     loading = true;
     error = null;
@@ -23,6 +29,29 @@
       error = err instanceof Error ? err.message : 'Failed to load inspection.';
     } finally {
       loading = false;
+    }
+  }
+
+  async function handleRegisterPanel(e: SubmitEvent) {
+    e.preventDefault();
+    registeringPanel = true;
+    registerError = null;
+    try {
+      const lat = newPanelLat !== '' ? parseFloat(newPanelLat) : 0;
+      const lon = newPanelLon !== '' ? parseFloat(newPanelLon) : 0;
+      await createPanel(inspectionId, {
+        identifierCode: newPanelCode.trim(),
+        latitude: lat,
+        longitude: lon,
+      });
+      newPanelCode = 'PANEL-01';
+      newPanelLat = '';
+      newPanelLon = '';
+      await load();
+    } catch (err) {
+      registerError = err instanceof Error ? err.message : 'Failed to register panel.';
+    } finally {
+      registeringPanel = false;
     }
   }
 
@@ -157,9 +186,74 @@
         {/each}
       </div>
     {:else}
-      <p class="text-slate/50 text-sm py-8 text-center">
-        No panels registered yet. Import a digital twin first.
-      </p>
+      <!-- Register first panel -->
+      <div class="bg-surface rounded-2xl border border-slate/10 p-6 max-w-md">
+        <h3 class="font-heading font-semibold text-slate mb-1">Register a panel</h3>
+        <p class="text-xs text-slate/50 mb-4">
+          Add at least one panel to start uploading thermal images.
+          Use alphanumeric segments separated by hyphens (e.g. <code class="bg-slate/10 px-1 rounded">PANEL-01</code>).
+        </p>
+
+        {#if registerError}
+          <div role="alert" class="text-xs text-red-600 bg-red-50 border border-red-200 rounded-lg px-3 py-2 mb-3">
+            {registerError}
+          </div>
+        {/if}
+
+        <form onsubmit={handleRegisterPanel} class="space-y-3">
+          <div>
+            <label for="panelCode" class="block text-xs font-medium text-slate mb-1">
+              Identifier code <span class="text-red-500" aria-hidden="true">*</span>
+            </label>
+            <input
+              id="panelCode"
+              type="text"
+              bind:value={newPanelCode}
+              required
+              pattern="[A-Za-z0-9]+(-[A-Za-z0-9]+)*"
+              placeholder="PANEL-01"
+              class="w-full px-3 py-2 border border-slate/20 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-mint"
+            />
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label for="panelLat" class="block text-xs font-medium text-slate mb-1">Latitude (optional)</label>
+              <input
+                id="panelLat"
+                type="number"
+                step="any"
+                min="-90"
+                max="90"
+                bind:value={newPanelLat}
+                placeholder="e.g. 52.2297"
+                class="w-full px-3 py-2 border border-slate/20 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-mint"
+              />
+            </div>
+            <div>
+              <label for="panelLon" class="block text-xs font-medium text-slate mb-1">Longitude (optional)</label>
+              <input
+                id="panelLon"
+                type="number"
+                step="any"
+                min="-180"
+                max="180"
+                bind:value={newPanelLon}
+                placeholder="e.g. 21.0122"
+                class="w-full px-3 py-2 border border-slate/20 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-mint"
+              />
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            disabled={registeringPanel || !newPanelCode}
+            class="w-full bg-solar text-white text-sm font-semibold py-2.5 rounded-lg hover:bg-solar/90 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+          >
+            {registeringPanel ? 'Registering…' : 'Register panel'}
+          </button>
+        </form>
+      </div>
     {/if}
   {/if}
 {/if}
